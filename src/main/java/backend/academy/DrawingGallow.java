@@ -1,4 +1,4 @@
-package backend.academy.samples;
+package backend.academy;
 
 public class DrawingGallow {
 
@@ -17,7 +17,7 @@ public class DrawingGallow {
         this.currentGame = currentGame;
     }
 
-    public int getCount_Error() {
+    public int getCountError() {
         return countError;
     }
 

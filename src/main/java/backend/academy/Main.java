@@ -1,6 +1,5 @@
 package backend.academy;
 
-import backend.academy.samples.DrawingGallow;
 import lombok.experimental.UtilityClass;
 
 
