@@ -14,9 +14,6 @@ public class Config {
 
     public static final int RANDOM_CATEGORY_MIN = 1;
     public static final int RANDOM_CATEGORY_MAX = 4;
-
-
-
     public static final int CATEGORY_ONE = 1;
     public static final int CATEGORY_TWO = 2;
     public static final int CATEGORY_THREE = 3;
@@ -28,4 +25,16 @@ public class Config {
     public static final String WARNING_MESSAGE = "Ошибка! Введите число: ";
 
 
+
+
+    //______________
+
+
+
+
+    public static final int RANDOM_LEVEL_MIN = 1;
+    public static final int RANDOM_LEVEL_MAX = 3;
+    public static final int LEVEL_ONE = 1;
+    public static final int LEVEL_TWO = 2;
+    public static final int LEVEL_THREE = 3;
 }

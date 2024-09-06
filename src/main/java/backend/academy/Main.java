@@ -51,8 +51,10 @@ public class Main {
 //            g.printGallows(System.out);
 //        }
 
-        int category = Chosen.chooseCategory(scan, System.out);
+     //   int category = Chosen.chooseCategory(scan, System.out);
 //        System.out.println(category);
+        int level = Chosen.chooseLevel(scan, System.out);
+//        System.out.println(level);
 
     }
 }

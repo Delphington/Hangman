@@ -5,11 +5,13 @@ import java.util.Random;
 import java.util.Scanner;
 
 public class Chosen {
+    private Chosen() {
+    }
+
     public static Random random = new Random();
 
     private static int category = 0;
-    private int level = 0;
-    private static boolean f = true;
+    private static int level = 0;
 
     static String line = null;
 
@@ -45,32 +47,34 @@ public class Chosen {
             }
 
         }
+    }
 
-//        while (true) {
-//            try {
-//                //Первоначально определеляем
-//                if (f) {
-//                    category = Integer.parseInt(s);
-//                    f = false;
-//                } else {
-//                    category = scan.nextInt();
-//                }
-//
-//                if (category < Config.RANDOM_CATEGORY_MIN || category > Config.RANDOM_CATEGORY_MAX) {
-//                    printStream.println("Ошибка! Вы ввели неподходящее число.");
-//                    printStream.println("Введите цифру: ");
-//
-//                } else {
-//                    break;
-//                }
-//            } catch (Exception e) {
-//                printStream.println("Ошибка! Вы ввели не число");
-//                printStream.println("Введите цифру еще раз: ");
-//                scan.next(); //Очистка не корретного ввода
-//            }
-//        }
-//        f = true;
-//
-//        return category;
+    public static int chooseLevel(Scanner scan, PrintStream printStream) {
+
+        printStream.println("Выберите уровень сложности: \n"
+            + "[" + Config.LEVEL_ONE + "] Легкий \n"
+            + "[" + Config.LEVEL_TWO + "] Средний \n"
+            + "[" + Config.LEVEL_THREE + "] Сложный"
+        );
+
+        while (true) {
+            line = scan.nextLine().trim();
+
+            if (line.isEmpty()) {
+                return random.nextInt(Config.RANDOM_LEVEL_MAX) + Config.RANDOM_LEVEL_MIN;
+            } else {
+                try {
+                    level = Integer.parseInt(line);
+                    if (level >= Config.RANDOM_LEVEL_MIN && level <= Config.RANDOM_LEVEL_MAX) {
+                        return level;
+                    }
+                    printStream.println(Config.WARNING_MESSAGE);
+
+                } catch (Exception e) {
+                    printStream.println(Config.WARNING_MESSAGE);
+
+                }
+            }
+        }
     }
 }
