@@ -10,7 +10,6 @@ import lombok.experimental.UtilityClass;
 @UtilityClass
 public class Main {
 
-
     String[][] natureWords = {
         {"лес", "река", "сад", "мох", "лист", "цвет", "дождь", "корень", "плод"},
         {"гора", "озеро", "цветок", "дерево", "животное", "птица", "солнце", "облако", "ветер", "земля",
@@ -53,8 +52,12 @@ public class Main {
 
     public static void main(String[] args) {
         DrawingGallow drawingGallow = new DrawingGallow();
-
-
+//        for (int i = 0; i < 6; i++) {
+//            drawingGallow.increment();
+//            drawingGallow.printGallows(System.out);
+//        }
+//
+//        drawingGallow.setCountError(0);
 
         int category = Chosen.chooseCategory(scan, System.out, random);
         int level = Chosen.chooseLevel(scan, System.out, random);
@@ -100,10 +103,10 @@ public class Main {
         //----------
 
         //Индекс для выбора слова из категории
-        int IndexWord = random.nextInt(arr.size()) + 0;
+        int indexWord = random.nextInt(arr.size()) + 0;
 
         //Выбранное слово
-        String ourWord = new String(arr.get(IndexWord));
+        String ourWord = new String(arr.get(indexWord));
 
         //Строка, которая будет менятся и которую будем угадывать
         StringBuilder foreignStr = new StringBuilder();
@@ -118,7 +121,7 @@ public class Main {
             cloneForeignStr.append(ourWord.charAt(i));
             cloneForeignStr.append(" ");
         }
-        LogicGame.play(drawingGallow,  ourWord, foreignStr,
+        LogicGame.play(drawingGallow, ourWord, foreignStr,
             cloneForeignStr, System.out, scan);
 
         //-----------------------

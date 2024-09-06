@@ -5,6 +5,8 @@ import java.util.ArrayList;
 import java.util.Scanner;
 
 public class LogicGame {
+    private LogicGame() {
+    }
 
     public static void play(
         DrawingGallow drawingGallow,
@@ -14,61 +16,63 @@ public class LogicGame {
         Scanner scan
     ) {
 
-        System.out.println("str = " + ourWord + "  CloneStr = " + foreignStr + "StrNew: " + cloneForeignStr);
+        char symbol;
 
-        boolean glag = true;
-        ArrayList<String> letter = new ArrayList<>();
-        System.out.println("Количество ваших попыток: " + (6 - drawingGallow.getCountError()));
+        printStream.println("str = " + ourWord + "\nCloneStr = " + foreignStr);
 
-        while (glag) {
-            // System.out.println("Количество ваших попыток: " + (6 - gr.getCount_Error()));
-            System.out.println("Использованные буквы: " + letter.toString());
+        ArrayList<String> letter = new ArrayList<>(); //Массив для использованных букв
 
-            System.out.println("Введите букву");
-            String g = scan.nextLine().trim().toLowerCase();
+        printStream.println(Config.REMAINING_ATTEMPTS + (Config.TOTAL_ATTEMPTS - drawingGallow.getCountError()));
 
-            if (CheckDate.checkChar(g)) {  //проверка на норм символы
-                char symbol = g.charAt(0);
-                if (letter.contains(Character.toString(symbol))) {
-                    System.out.println("Внимание! Вы уже вводили эту букву!");
-                } else {
+        while (true) {
 
-                    letter.add(Character.toString(symbol));
-                    if (ourWord.indexOf(String.valueOf(symbol)) == -1) {
-                        System.out.println("Такой буквы нет в слове");
-                        drawingGallow.increment();
-                        drawingGallow.printGallows(System.out);
-                        System.out.println("Количество ваших попыток: " + (6 - drawingGallow.getCountError()));
-                        if (drawingGallow.getCountError() == 6) {
-                            System.out.println("----------------WE LOSED -----------------");
-                            glag = false;
-                            drawingGallow.setCountError(0);
-
-                            break;
-                        }
+            //Проверка корректности ввода символа
+            while (true) {
+                printStream.println("Введите букву: ");
+                String temp = scan.nextLine().trim().toLowerCase();
+                if (CheckDate.checkChar(temp)) {  //проверка на норм символы
+                    symbol = temp.charAt(0);
+                    if (letter.contains(Character.toString(symbol))) {
+                        printStream.println("Внимание! Вы уже вводили эту букву, попробуйте еще раз!");
                     } else {
-                        //Случай, когда пользователь смог отгадать буквы
-                        for (int i = 0; i < cloneForeignStr.length(); i++) {
-                            if (symbol == cloneForeignStr.charAt(i)) {
-                                foreignStr.setCharAt(i, symbol);
-//                                        if(CloneStr.charAt(i+1) ==' '){
-//                                            CloneStr.deleteCharAt(i+1);
-//                                        }
-                            }
-                        }
-                        System.out.println(foreignStr);
+                        letter.add(Character.toString(symbol));
+                        break;
                     }
 
-                    if (foreignStr.indexOf("_") == -1) {
-                        System.out.println("Вы отгадали слово! ");
-                        glag = false;
-                        drawingGallow.setCountError(0);
+                } else {
+                    printStream.print("Ошибка! ");
+                }
+            }
+
+            //Пользователь введ буквы, которой нет в слове
+            if (ourWord.indexOf(String.valueOf(symbol)) == -1) {
+                printStream.println("Такой буквы нет в слове!");
+                drawingGallow.increment();
+                drawingGallow.printGallows(System.out);
+                printStream.println(
+                    Config.REMAINING_ATTEMPTS + (Config.TOTAL_ATTEMPTS - drawingGallow.getCountError()));
+
+                if (drawingGallow.getCountError() == Config.TOTAL_ATTEMPTS) {
+                    printStream.println("----------------WE LOSED -----------------");
+                    drawingGallow.setCountError(0);
+                    break;
+                }
+            } else {
+                //Случай, когда пользователь смог отгадать буквы
+                for (int i = 0; i < cloneForeignStr.length(); i++) {
+                    if (symbol == cloneForeignStr.charAt(i)) {
+                        foreignStr.setCharAt(i, symbol);
                     }
                 }
-
-            } else {
-                System.out.println("Не корректный ввод");
+                printStream.println(foreignStr);
             }
+
+            if (foreignStr.indexOf("_") == -1) {
+                printStream.println("Вы отгадали слово! ");
+                drawingGallow.setCountError(0);
+                break;
+            }
+
         }
     }
 }

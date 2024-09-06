@@ -3,7 +3,6 @@ package backend.academy;
 import java.io.PrintStream;
 
 public class DrawingGallow {
-    private static final int MAXERROR = 7;
     private int countError = 0;
 
     public void setCountError(int countError) {
@@ -26,26 +25,25 @@ public class DrawingGallow {
     private final static String HELPSTRING = "|";
 
     public void printGallows(PrintStream printStream) {
-        printStream.println("ERORR: " + countError);
 
         printStream.println("  _ _ _ _ _ _");
-        for (int i = 0; i < MAXERROR - countError; i++) {
+        for (int i = 0; i <= Config.TOTAL_ATTEMPTS - countError; i++) {
             printStream.print("|");
             if (i == 0) {
                 //Разрисовка висилица в зависимости от количества ошибок
                 switch (countError) {
-                    case Config.FIRST_CASE:
+                    case Config.ERROR_FIRST_CASE:
                         printStream.println(FIRSTSTRING);
                         printStream.print(SECONDSTRING);
                         break;
 
-                    case Config.SECOND_CASE:
+                    case Config.ERROR_SECOND_CASE:
                         printStream.println(FIRSTSTRING);
                         printStream.println(SECONDSTRING);
                         printStream.print(THIRDSTRING);
                         break;
 
-                    case Config.THIRD_CASE:
+                    case Config.ERROR_THIRD_CASE:
                         printStream.println(FIRSTSTRING);
                         printStream.println(SECONDSTRING);
                         printStream.print(THIRDSTRING);
@@ -53,7 +51,7 @@ public class DrawingGallow {
                         printStream.print(HELPSTRING);
                         break;
 
-                    case Config.FOURTH_CASE:
+                    case Config.ERROR_FOURTH_CASE:
                         printStream.println(FIRSTSTRING);
                         printStream.println(SECONDSTRING);
                         printStream.println(FIFTHSTRING);
@@ -61,7 +59,7 @@ public class DrawingGallow {
                         printStream.print(HELPSTRING);
                         break;
 
-                    case Config.FIFTH_CASE:
+                    case Config.ERROR_FIFTH_CASE:
                         printStream.println(FIRSTSTRING);
                         printStream.println(SECONDSTRING);
                         printStream.println(FIFTHSTRING);
@@ -70,7 +68,7 @@ public class DrawingGallow {
                         printStream.print(HELPSTRING);
                         break;
 
-                    case Config.SIXTH_CASE:
+                    case Config.ERROR_SIXTH_CASE:
                         printStream.println(FIRSTSTRING);
                         printStream.println(SECONDSTRING);
                         printStream.println(FIFTHSTRING);
@@ -85,7 +83,6 @@ public class DrawingGallow {
                         printStream.println("Error");
                         break;
                 }
-
             }
             printStream.println();
         }
