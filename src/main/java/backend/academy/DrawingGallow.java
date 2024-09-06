@@ -5,20 +5,9 @@ import java.io.PrintStream;
 public class DrawingGallow {
     private static final int MAXERROR = 7;
     private int countError = 0;
-    private boolean currentGame = true;
-
-    private final int[] arr = {1, 2, 3, 4, 5, 6};
 
     public void setCountError(int countError) {
         this.countError = countError;
-    }
-
-    public boolean isCurrentGame() {
-        return currentGame;
-    }
-
-    public void setCurrentGame(boolean currentGame) {
-        this.currentGame = currentGame;
     }
 
     public int getCountError() {
@@ -43,7 +32,7 @@ public class DrawingGallow {
         for (int i = 0; i < MAXERROR - countError; i++) {
             printStream.print("|");
             if (i == 0) {
-                //7 палочек
+                //Разрисовка висилица в зависимости от количества ошибок
                 switch (countError) {
                     case Config.FIRST_CASE:
                         printStream.println(FIRSTSTRING);
@@ -93,10 +82,9 @@ public class DrawingGallow {
                         break;
 
                     default:
-                        // Обработка случая, если countError не соответствует ни одному элементу массива
+                        printStream.println("Error");
                         break;
                 }
-
 
             }
             printStream.println();

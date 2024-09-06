@@ -12,4 +12,20 @@ public class Config {
         //throw new UnsupportedOperationException("Utility class should not be instantiated");
     }
 
+    public static final int RANDOM_CATEGORY_MIN = 1;
+    public static final int RANDOM_CATEGORY_MAX = 4;
+
+
+
+    public static final int CATEGORY_ONE = 1;
+    public static final int CATEGORY_TWO = 2;
+    public static final int CATEGORY_THREE = 3;
+    public static final int CATEGORY_FOUR = 4;
+
+
+
+
+    public static final String WARNING_MESSAGE = "Ошибка! Введите число: ";
+
+
 }
