@@ -9,15 +9,13 @@ public class LogicGame {
     }
 
     public static void play(
-        DrawingGallow drawingGallow,
-        String ourWord, StringBuilder foreignStr,
-        StringBuilder cloneForeignStr,
-        PrintStream printStream,
-        Scanner scan
+        DrawingGallow drawingGallow, String ourWord, StringBuilder foreignStr,
+        StringBuilder cloneForeignStr, PrintStream printStream, Scanner scan
     ) {
 
         char symbol;
 
+        //TODO: Стереть строчку
         printStream.println("str = " + ourWord + "\nCloneStr = " + foreignStr);
 
         ArrayList<String> letter = new ArrayList<>(); //Массив для использованных букв
@@ -38,7 +36,6 @@ public class LogicGame {
                         letter.add(Character.toString(symbol));
                         break;
                     }
-
                 } else {
                     printStream.print("Ошибка! ");
                 }
@@ -46,7 +43,7 @@ public class LogicGame {
 
             //Пользователь введ буквы, которой нет в слове
             if (ourWord.indexOf(String.valueOf(symbol)) == -1) {
-                printStream.println("Такой буквы нет в слове!");
+                // printStream.println("Такой буквы нет в слове!");
                 drawingGallow.increment();
                 drawingGallow.printGallows(System.out);
                 printStream.println(
@@ -72,7 +69,6 @@ public class LogicGame {
                 drawingGallow.setCountError(0);
                 break;
             }
-
         }
     }
 }

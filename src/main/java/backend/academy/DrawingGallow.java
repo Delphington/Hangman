@@ -25,66 +25,68 @@ public class DrawingGallow {
     private final static String HELPSTRING = "|";
 
     public void printGallows(PrintStream printStream) {
+        if (countError <= Config.TOTAL_ATTEMPTS && countError > 0) {
 
-        printStream.println("  _ _ _ _ _ _");
-        for (int i = 0; i <= Config.TOTAL_ATTEMPTS - countError; i++) {
-            printStream.print("|");
-            if (i == 0) {
-                //Разрисовка висилица в зависимости от количества ошибок
-                switch (countError) {
-                    case Config.ERROR_FIRST_CASE:
-                        printStream.println(FIRSTSTRING);
-                        printStream.print(SECONDSTRING);
-                        break;
+            printStream.print("  _ _ _ _ _ _\n");
+            for (int i = 0; i <= Config.TOTAL_ATTEMPTS - countError; i++) {
+                printStream.print("|");
+                if (i == 0) {
+                    //Разрисовка висилица в зависимости от количества ошибок
+                    switch (countError) {
+                        case Config.ERROR_FIRST_CASE:
+                            printStream.print(FIRSTSTRING + "\n");
+                            printStream.print(SECONDSTRING);
+                            break;
 
-                    case Config.ERROR_SECOND_CASE:
-                        printStream.println(FIRSTSTRING);
-                        printStream.println(SECONDSTRING);
-                        printStream.print(THIRDSTRING);
-                        break;
+                        case Config.ERROR_SECOND_CASE:
+                            printStream.print(FIRSTSTRING + "\n");
+                            printStream.print(SECONDSTRING + "\n");
+                            printStream.print(THIRDSTRING);
+                            break;
 
-                    case Config.ERROR_THIRD_CASE:
-                        printStream.println(FIRSTSTRING);
-                        printStream.println(SECONDSTRING);
-                        printStream.print(THIRDSTRING);
-                        printStream.println(FOURTHSTRING);
-                        printStream.print(HELPSTRING);
-                        break;
+                        case Config.ERROR_THIRD_CASE:
+                            printStream.print(FIRSTSTRING + "\n");
+                            printStream.print(SECONDSTRING + "\n");
+                            printStream.print(THIRDSTRING);
+                            printStream.print(FOURTHSTRING + "\n");
+                            printStream.print(HELPSTRING);
+                            break;
 
-                    case Config.ERROR_FOURTH_CASE:
-                        printStream.println(FIRSTSTRING);
-                        printStream.println(SECONDSTRING);
-                        printStream.println(FIFTHSTRING);
-                        printStream.println(HELPSTRING);
-                        printStream.print(HELPSTRING);
-                        break;
+                        case Config.ERROR_FOURTH_CASE:
+                            printStream.print(FIRSTSTRING + "\n");
+                            printStream.print(SECONDSTRING + "\n");
+                            printStream.print(FIFTHSTRING + "\n");
+                            printStream.print(HELPSTRING + "\n");
+                            printStream.print(HELPSTRING);
+                            break;
 
-                    case Config.ERROR_FIFTH_CASE:
-                        printStream.println(FIRSTSTRING);
-                        printStream.println(SECONDSTRING);
-                        printStream.println(FIFTHSTRING);
-                        printStream.println(THIRDSTRING);
-                        printStream.println(HELPSTRING);
-                        printStream.print(HELPSTRING);
-                        break;
+                        case Config.ERROR_FIFTH_CASE:
+                            printStream.print(FIRSTSTRING + "\n");
+                            printStream.print(SECONDSTRING + "\n");
+                            printStream.print(FIFTHSTRING + "\n");
+                            printStream.print(THIRDSTRING + "\n");
+                            printStream.print(HELPSTRING + "\n");
+                            printStream.print(HELPSTRING);
+                            break;
 
-                    case Config.ERROR_SIXTH_CASE:
-                        printStream.println(FIRSTSTRING);
-                        printStream.println(SECONDSTRING);
-                        printStream.println(FIFTHSTRING);
-                        printStream.print(THIRDSTRING);
-                        printStream.println(FOURTHSTRING);
-                        printStream.println(HELPSTRING);
-                        printStream.println(HELPSTRING);
-                        printStream.println(HELPSTRING);
-                        break;
+                        case Config.ERROR_SIXTH_CASE:
+                            printStream.print(FIRSTSTRING + "\n");
+                            printStream.print(SECONDSTRING + "\n");
+                            printStream.print(FIFTHSTRING + "\n");
+                            printStream.print(THIRDSTRING);
+                            printStream.print(FOURTHSTRING + "\n");
+                            printStream.print(HELPSTRING + "\n");
+                            printStream.print(HELPSTRING + "\n");
+                            printStream.print(HELPSTRING + "\n");
+                            break;
 
-                    default:
-                        printStream.println("Error");
-                        break;
+                        default:
+                            printStream.println("Error");
+                            break;
+                    }
                 }
+                printStream.print("\n");
             }
-            printStream.println();
         }
     }
 }

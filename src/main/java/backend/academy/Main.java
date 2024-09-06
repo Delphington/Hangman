@@ -10,23 +10,12 @@ import lombok.experimental.UtilityClass;
 @UtilityClass
 public class Main {
 
-    String[][] natureWords = {
-        {"лес", "река", "сад", "мох", "лист", "цвет", "дождь", "корень", "плод"},
-        {"гора", "озеро", "цветок", "дерево", "животное", "птица", "солнце", "облако", "ветер", "земля",
-            "океан", "пейзаж", "поляна"},
-        {"экосистема", "биосфера", "фотосинтез", "ландшафтный", "океанография", "пейзажистка", "организмов",
-            "субтропики", "природоохранный"}
-    };
-
     String[][] sportsWords = {
         {"лук", "игра", "прыж", "бокс", "брас", "лед", "бег", "мост", "гонка", "топ"},
         {"футбол", "боксёр", "гимнаст", "велосипед", "плавание", "теннис", "хоккей", "спортсмен", "марафон", "бегунья"},
         {"спартакиада", "чемпионат", "паралимпийдец", "тренировка", "футболистка", "бодибилдинг", "сноубординг",
             "кроссфит", "качалка"}
     };
-
-    //----------------------------------
-    //--------------------------------------------------
 
     String[][] animalsWords = {
         {"кот", "пес", "лев", "крыса", "утка", "рыба", "мышь", "овца", "фазан", "жук"},
@@ -35,7 +24,14 @@ public class Main {
             "дикобраз", "дельфиния"}
     };
 
-    //-------------------------------------
+    String[][] natureWords = {
+        {"лес", "река", "сад", "мох", "лист", "цвет", "дождь", "корень", "плод"},
+        {"гора", "озеро", "цветок", "дерево", "животное", "птица", "солнце", "облако", "ветер", "земля",
+            "океан", "пейзаж", "поляна"},
+        {"экосистема", "биосфера", "фотосинтез", "ландшафтный", "океанография", "пейзажистка", "организмов",
+            "субтропики", "природоохранный"}
+    };
+
     String[][] countriesWords = {
         {"сша", "иран", "япония", "чад", "перу", "ливия", "кипр", "фиджи", "мали", "нигер"},
         {"норвегия", "греция", "мексика",
@@ -52,20 +48,22 @@ public class Main {
 
     public static void main(String[] args) {
         DrawingGallow drawingGallow = new DrawingGallow();
-//        for (int i = 0; i < 6; i++) {
-//            drawingGallow.increment();
-//            drawingGallow.printGallows(System.out);
-//        }
-//
-//        drawingGallow.setCountError(0);
+        drawingGallow.printGallows(System.out);
 
         int category = Chosen.chooseCategory(scan, System.out, random);
         int level = Chosen.chooseLevel(scan, System.out, random);
+
+//        Map<Integer, String[][]>  map =  new HashMap<>();
+//        map.put(1, sportsWords);
+//        map.put(2, animalsWords);
+//        map.put(2, natureWords);
+//        map.put(2, countriesWords);
 
         ArrayList<String> arr = new ArrayList<>();
 
         if (category == Config.CATEGORY_ONE) {
             if (level == Config.LEVEL_ONE) {
+                //rr.addAll(List.of(map.))
                 arr.addAll(List.of(sportsWords[0]));
             } else if (level == Config.LEVEL_TWO) {
                 arr.addAll(List.of(sportsWords[1]));
@@ -121,10 +119,8 @@ public class Main {
             cloneForeignStr.append(ourWord.charAt(i));
             cloneForeignStr.append(" ");
         }
-        LogicGame.play(drawingGallow, ourWord, foreignStr,
-            cloneForeignStr, System.out, scan);
+        LogicGame.play(drawingGallow, ourWord, foreignStr, cloneForeignStr, System.out, scan);
 
-        //-----------------------
         scan.close();
     }
 }

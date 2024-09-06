@@ -8,8 +8,6 @@ public class Chosen {
     private Chosen() {
     }
 
-    public static Random random = new Random();
-
     private static int category = 0;
     private static int level = 0;
 
