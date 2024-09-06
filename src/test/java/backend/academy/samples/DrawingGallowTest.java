@@ -2,20 +2,9 @@ package backend.academy.samples;
 
 import java.io.ByteArrayOutputStream;
 import java.io.PrintStream;
-import java.time.Clock;
-import java.time.Duration;
-import java.time.Instant;
-import java.util.List;
-import java.util.Map;
-import java.util.concurrent.atomic.AtomicInteger;
-import java.util.stream.IntStream;
 import backend.academy.DrawingGallow;
-import lombok.RequiredArgsConstructor;
-import lombok.extern.log4j.Log4j2;
-import org.assertj.core.api.Condition;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
-import org.junit.jupiter.api.Nested;
 import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
@@ -30,6 +19,9 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class DrawingGallowTest {
 
+    private final ByteArrayOutputStream outputStreamCaptor = new ByteArrayOutputStream();
+    private final PrintStream originalOut = System.out;
+
     @Test
     public void increment() {
         DrawingGallow drawingGallow = new DrawingGallow();
@@ -37,8 +29,7 @@ public class DrawingGallowTest {
         assertEquals(1, drawingGallow.getCountError());
     }
 
-    private final ByteArrayOutputStream outputStreamCaptor = new ByteArrayOutputStream();
-    private final PrintStream originalOut = System.out;
+
 
     @BeforeEach
     public void setUp() {
