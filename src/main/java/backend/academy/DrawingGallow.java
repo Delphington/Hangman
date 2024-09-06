@@ -1,9 +1,13 @@
 package backend.academy;
 
-public class DrawingGallow {
+import java.io.PrintStream;
 
+public class DrawingGallow {
+    private static final int MAXERROR = 7;
     private int countError = 0;
     private boolean currentGame = true;
+
+    private final int[] arr = {1, 2, 3, 4, 5, 6};
 
     public void setCountError(int countError) {
         this.countError = countError;
@@ -25,58 +29,77 @@ public class DrawingGallow {
         countError++;
     }
 
-    public void printGallows() {
-        if (countError > 0 && countError < 7) {
-            System.out.println("  _ _ _ _ _ _");
-            for (int i = 0; i < 7 - countError; i++) {
-                System.out.print("|");
-                if (i == 0) {
-                    //7 палочек
-                    if (countError == 1) {
-                        System.out.println("           |");
-                        System.out.print("|           0");
-                    } else if (countError == 2) {
-                        //7
-                        System.out.println("           |");
-                        System.out.println("|           0");
-                        System.out.print("|          /");
-                    } else if (countError == 3) {
-                        System.out.println("           |");
-                        System.out.println("|           0");
-                        System.out.println("|          / \\");
-                        System.out.print("|");
-                    } else if (countError == 4) {
-                        System.out.println("           |");
-                        System.out.println("|           0");
-                        System.out.println("|          /|\\");
-                        System.out.println("|           | ");
-                        System.out.print("|");
+    private final static String FIRSTSTRING = "           |";
+    private final static String SECONDSTRING = "|           0";
+    private final static String THIRDSTRING = "|          /";
+    private final static String FOURTHSTRING = " \\";
+    private final static String FIFTHSTRING = "|          /|\\";
+    private final static String HELPSTRING = "|";
 
-                    } else if (countError == 5) {
-                        System.out.println("           |");
-                        System.out.println("|           0");
-                        System.out.println("|          /|\\");
-                        System.out.println("|           | ");
-                        System.out.println("|          / ");
-                        System.out.print("|");
+    public void printGallows(PrintStream printStream) {
+        printStream.println("ERORR: " + countError);
 
-                    } else if (countError == 6) {
-                        currentGame = false;
-                        System.out.println("           |");
-                        System.out.println("|           0");
-                        System.out.println("|          /|\\");
-                        System.out.println("|           | ");
-                        System.out.println("|          / \\");
-                        System.out.println("|");
-                        System.out.print("|");
-                    }
+        printStream.println("  _ _ _ _ _ _");
+        for (int i = 0; i < MAXERROR - countError; i++) {
+            printStream.print("|");
+            if (i == 0) {
+                //7 палочек
+                switch (countError) {
+                    case Config.FIRST_CASE:
+                        printStream.println(FIRSTSTRING);
+                        printStream.print(SECONDSTRING);
+                        break;
+
+                    case Config.SECOND_CASE:
+                        printStream.println(FIRSTSTRING);
+                        printStream.println(SECONDSTRING);
+                        printStream.print(THIRDSTRING);
+                        break;
+
+                    case Config.THIRD_CASE:
+                        printStream.println(FIRSTSTRING);
+                        printStream.println(SECONDSTRING);
+                        printStream.print(THIRDSTRING);
+                        printStream.println(FOURTHSTRING);
+                        printStream.print(HELPSTRING);
+                        break;
+
+                    case Config.FOURTH_CASE:
+                        printStream.println(FIRSTSTRING);
+                        printStream.println(SECONDSTRING);
+                        printStream.println(FIFTHSTRING);
+                        printStream.println(HELPSTRING);
+                        printStream.print(HELPSTRING);
+                        break;
+
+                    case Config.FIFTH_CASE:
+                        printStream.println(FIRSTSTRING);
+                        printStream.println(SECONDSTRING);
+                        printStream.println(FIFTHSTRING);
+                        printStream.println(THIRDSTRING);
+                        printStream.println(HELPSTRING);
+                        printStream.print(HELPSTRING);
+                        break;
+
+                    case Config.SIXTH_CASE:
+                        printStream.println(FIRSTSTRING);
+                        printStream.println(SECONDSTRING);
+                        printStream.println(FIFTHSTRING);
+                        printStream.print(THIRDSTRING);
+                        printStream.println(FOURTHSTRING);
+                        printStream.println(HELPSTRING);
+                        printStream.println(HELPSTRING);
+                        printStream.println(HELPSTRING);
+                        break;
+
+                    default:
+                        // Обработка случая, если countError не соответствует ни одному элементу массива
+                        break;
                 }
-                System.out.println();
-            }
-            System.out.println("----");
 
-        } else {
-            System.out.println("Error: нас здесь быть не должно");
+
+            }
+            printStream.println();
         }
     }
 }

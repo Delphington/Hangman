@@ -2,14 +2,15 @@ package backend.academy;
 
 import lombok.experimental.UtilityClass;
 
-
 @UtilityClass
 public class Main {
     public static void main(String[] args) {
         DrawingGallow g = new DrawingGallow();
-        for(int i=0; i<6; i++){
+        final int maxError = 6;
+        for (int i = 0; i < maxError; i++) {
             g.increment();
-            g.printGallows();
+            g.printGallows(System.out);
         }
+
     }
 }
