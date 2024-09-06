@@ -15,7 +15,7 @@ public class Chosen {
 
     static String line = null;
 
-    public static int chooseCategory(Scanner scan, PrintStream printStream) {
+    public static int chooseCategory(Scanner scan, PrintStream printStream, Random random) {
 
         printStream.println("Выберите номер категории слов: \n"
 
@@ -49,7 +49,7 @@ public class Chosen {
         }
     }
 
-    public static int chooseLevel(Scanner scan, PrintStream printStream) {
+    public static int chooseLevel(Scanner scan, PrintStream printStream, Random random) {
 
         printStream.println("Выберите уровень сложности: \n"
             + "[" + Config.LEVEL_ONE + "] Легкий \n"

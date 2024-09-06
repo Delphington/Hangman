@@ -1,10 +1,15 @@
 package backend.academy;
 
+import java.io.PrintStream;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Random;
 import java.util.Scanner;
 import lombok.experimental.UtilityClass;
 
 @UtilityClass
 public class Main {
+
 
     String[][] natureWords = {
         {"лес", "река", "сад", "мох", "лист", "цвет", "дождь", "корень", "плод"},
@@ -42,19 +47,81 @@ public class Main {
     };
 
     Scanner scan = new Scanner(System.in);
+    Random random = new Random();
+
+    PrintStream printStream;
 
     public static void main(String[] args) {
-        DrawingGallow g = new DrawingGallow();
-//        final int maxError = 6;
-//        for (int i = 0; i < maxError; i++) {
-//            g.increment();
-//            g.printGallows(System.out);
-//        }
+        DrawingGallow drawingGallow = new DrawingGallow();
 
-     //   int category = Chosen.chooseCategory(scan, System.out);
-//        System.out.println(category);
-        int level = Chosen.chooseLevel(scan, System.out);
-//        System.out.println(level);
 
+
+        int category = Chosen.chooseCategory(scan, System.out, random);
+        int level = Chosen.chooseLevel(scan, System.out, random);
+
+        ArrayList<String> arr = new ArrayList<>();
+
+        if (category == Config.CATEGORY_ONE) {
+            if (level == Config.LEVEL_ONE) {
+                arr.addAll(List.of(sportsWords[0]));
+            } else if (level == Config.LEVEL_TWO) {
+                arr.addAll(List.of(sportsWords[1]));
+            } else {
+                arr.addAll(List.of(sportsWords[2]));
+            }
+
+        } else if (category == Config.CATEGORY_TWO) {
+            if (level == Config.LEVEL_ONE) {
+                arr.addAll(List.of(animalsWords[0]));
+            } else if (level == Config.LEVEL_TWO) {
+                arr.addAll(List.of(animalsWords[1]));
+            } else {
+                arr.addAll(List.of(animalsWords[2]));
+            }
+        } else if (category == Config.CATEGORY_THREE) {
+            if (level == Config.LEVEL_ONE) {
+                arr.addAll(List.of(natureWords[0]));
+            } else if (level == Config.LEVEL_TWO) {
+                arr.addAll(List.of(natureWords[1]));
+            } else {
+                arr.addAll(List.of(natureWords[2]));
+            }
+
+        } else {
+            if (level == 1) {
+                arr.addAll(List.of(countriesWords[0]));
+            } else if (level == 2) {
+                arr.addAll(List.of(countriesWords[1]));
+            } else {
+                arr.addAll(List.of(countriesWords[2]));
+            }
+        }
+        //System.out.println(arr);
+        //----------
+
+        //Индекс для выбора слова из категории
+        int IndexWord = random.nextInt(arr.size()) + 0;
+
+        //Выбранное слово
+        String ourWord = new String(arr.get(IndexWord));
+
+        //Строка, которая будет менятся и которую будем угадывать
+        StringBuilder foreignStr = new StringBuilder();
+        for (int i = 0; i < ourWord.length(); i++) {
+            foreignStr.append("_");
+            foreignStr.append(" ");
+        }
+
+        //Копия нашей, строки. Нужно чтобы было удобно сравнивать с ForeignStr
+        StringBuilder cloneForeignStr = new StringBuilder();
+        for (int i = 0; i < ourWord.length(); i++) {
+            cloneForeignStr.append(ourWord.charAt(i));
+            cloneForeignStr.append(" ");
+        }
+        LogicGame.play(drawingGallow,  ourWord, foreignStr,
+            cloneForeignStr, System.out, scan);
+
+        //-----------------------
+        scan.close();
     }
 }
