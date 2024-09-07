@@ -32,6 +32,8 @@ public class Config {
 
     //Варнинги-строки
     public static final String WARNING_MESSAGE = "Ошибка! Введите число: ";
+    public static final String MESSAGE = "Введите букву: ";
+
     public static final String REMAINING_ATTEMPTS = "Количество ваших попыток: ";
 
     //Пути файлов

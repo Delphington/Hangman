@@ -22,13 +22,11 @@ public class SrvInitialization {
         try (BufferedReader br = new BufferedReader(new FileReader(filePath))) {
             String line;
             while ((line = br.readLine()) != null) {
-                wordAndHint = new HashMap<>();
 
                 if (line.contains("[" + category + ":" + level + "]")) {
-
                     String str;
+                    wordAndHint = new HashMap<>();
                     while ((str = br.readLine()) != null && !str.contains("[")) {
-
                         String[] temp = str.trim().split(":");
                         wordAndHint.put(temp[0], temp[1]);
                     }

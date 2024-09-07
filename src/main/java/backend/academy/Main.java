@@ -15,40 +15,48 @@ public class Main {
     Scanner scan = new Scanner(System.in);
     Random random = new Random();
     Map<String, String> mapWordAndHint;
+    int indexWord;
+    int category;
+    int level;
 
     public static void main(String[] args) {
         DrawingGallow drawingGallow = new DrawingGallow();
+        while (true) {
+            category = Chosen.chooseCategory(scan, System.out, random);
+            level = Chosen.chooseLevel(scan, System.out, random);
 
-        int category = Chosen.chooseCategory(scan, System.out, random);
-        int level = Chosen.chooseLevel(scan, System.out, random);
+            try {
+                mapWordAndHint = SrvInitialization.getInfo(category, level);
+            } catch (Exception e) {
+                return;
+            }
 
-        try {
-            mapWordAndHint = SrvInitialization.getInfo(category, level);
-        } catch (Exception e) {
-            return;
+            //Индекс для выбора слова из категории
+            indexWord = random.nextInt(mapWordAndHint.size()) + 0;
+
+            //Выбранное слово
+            String ourWord = (String) mapWordAndHint.keySet().toArray()[indexWord];
+
+            //Строка, которая будет менятся и которую будем угадывать
+            StringBuilder foreignStr = new StringBuilder();
+            for (int i = 0; i < ourWord.length(); i++) {
+                foreignStr.append("_");
+                foreignStr.append(" ");
+            }
+
+            //Копия нашей, строки. Нужно чтобы было удобно сравнивать с foreignStr
+            StringBuilder cloneForeignStr = new StringBuilder();
+            for (int i = 0; i < ourWord.length(); i++) {
+                cloneForeignStr.append(ourWord.charAt(i));
+                cloneForeignStr.append(" ");
+            }
+            LogicGame.play(drawingGallow, ourWord, foreignStr, cloneForeignStr, System.out, scan);
+            drawingGallow.setCountError(0);
+
+            if (!Chosen.chooseAction(System.out, scan)) {
+                break;
+            }
         }
-
-        //Индекс для выбора слова из категории
-        int indexWord = random.nextInt(mapWordAndHint.size()) + 0;
-
-        //Выбранное слово
-        String ourWord = (String) mapWordAndHint.keySet().toArray()[indexWord];
-
-        //Строка, которая будет менятся и которую будем угадывать
-        StringBuilder foreignStr = new StringBuilder();
-        for (int i = 0; i < ourWord.length(); i++) {
-            foreignStr.append("_");
-            foreignStr.append(" ");
-        }
-
-        //Копия нашей, строки. Нужно чтобы было удобно сравнивать с ForeignStr
-        StringBuilder cloneForeignStr = new StringBuilder();
-        for (int i = 0; i < ourWord.length(); i++) {
-            cloneForeignStr.append(ourWord.charAt(i));
-            cloneForeignStr.append(" ");
-        }
-        LogicGame.play(drawingGallow, ourWord, foreignStr, cloneForeignStr, System.out, scan);
-
         scan.close();
     }
 }

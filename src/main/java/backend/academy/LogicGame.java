@@ -10,8 +10,7 @@ public class LogicGame {
 
     public static void play(
         DrawingGallow drawingGallow, String ourWord, StringBuilder foreignStr,
-        StringBuilder cloneForeignStr, PrintStream printStream, Scanner scan
-    ) {
+        StringBuilder cloneForeignStr, PrintStream printStream, Scanner scan) {
 
         char symbol;
 

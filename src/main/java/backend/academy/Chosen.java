@@ -75,4 +75,27 @@ public class Chosen {
             }
         }
     }
+
+    public static boolean chooseAction(PrintStream printStream, Scanner scan) {
+        printStream.println("[С]ontinue OR [E]xit");
+        while (true) {
+            line = scan.nextLine().trim();
+            if (line.isEmpty()) {
+                printStream.println(Config.MESSAGE);
+            } else {
+                if (CheckDate.checkChar(line)
+                    && line.equalsIgnoreCase("C")
+                    || line.equalsIgnoreCase("С")) {
+                    return true;
+                } else if (CheckDate.checkChar(line)
+                    && line.equalsIgnoreCase("E")
+                    || line.equalsIgnoreCase("Е")) {
+                    printStream.println("Игра завершена!");
+                    return false;
+                } else {
+                    printStream.println(Config.MESSAGE);
+                }
+            }
+        }
+    }
 }
