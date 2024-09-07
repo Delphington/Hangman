@@ -10,41 +10,15 @@ import lombok.experimental.UtilityClass;
 @UtilityClass
 public class Main {
 
-    String[][] sportsWords = {
-        {"лук", "игра", "прыж", "бокс", "брас", "лед", "бег", "мост", "гонка", "топ"},
-        {"футбол", "боксёр", "гимнаст", "велосипед", "плавание", "теннис", "хоккей", "спортсмен", "марафон", "бегунья"},
-        {"спартакиада", "чемпионат", "паралимпийдец", "тренировка", "футболистка", "бодибилдинг", "сноубординг",
-            "кроссфит", "качалка"}
-    };
+    //Уровень 1: слова из букв 1-4
+    //Уровень 2: слова из букв 5-8
+    //Уровень 3: слова из букв 9-14
 
-    String[][] animalsWords = {
-        {"кот", "пес", "лев", "крыса", "утка", "рыба", "мышь", "овца", "фазан", "жук"},
-        {"тигр", "лошадь", "бобер", "кенгуру", "черепаха", "пингвин", "ящерица", "сова", "утконос"},
-        {"носорог", "крокодил", "слоновидный", "моржевик", "гиена", "параллельный", "млекопитающее", "африканец",
-            "дикобраз", "дельфиния"}
-    };
-
-    String[][] natureWords = {
-        {"лес", "река", "сад", "мох", "лист", "цвет", "дождь", "корень", "плод"},
-        {"гора", "озеро", "цветок", "дерево", "животное", "птица", "солнце", "облако", "ветер", "земля",
-            "океан", "пейзаж", "поляна"},
-        {"экосистема", "биосфера", "фотосинтез", "ландшафтный", "океанография", "пейзажистка", "организмов",
-            "субтропики", "природоохранный"}
-    };
-
-    String[][] countriesWords = {
-        {"сша", "иран", "япония", "чад", "перу", "ливия", "кипр", "фиджи", "мали", "нигер"},
-        {"норвегия", "греция", "мексика",
-            "филиппины"},
-        {"бразилия", "узбекистан", "турция", "словения", "канада",
-            "великобритания", "нидерланды", "эквадор", "республика", "бельгия", "австралия", "венесуэла", "парагвай"
-        }
-    };
 
     Scanner scan = new Scanner(System.in);
     Random random = new Random();
+    ArrayList<String> arr;
 
-    PrintStream printStream;
 
     public static void main(String[] args) {
         DrawingGallow drawingGallow = new DrawingGallow();
@@ -53,52 +27,10 @@ public class Main {
         int category = Chosen.chooseCategory(scan, System.out, random);
         int level = Chosen.chooseLevel(scan, System.out, random);
 
-//        Map<Integer, String[][]>  map =  new HashMap<>();
-//        map.put(1, sportsWords);
-//        map.put(2, animalsWords);
-//        map.put(2, natureWords);
-//        map.put(2, countriesWords);
-
-        ArrayList<String> arr = new ArrayList<>();
-
-        if (category == Config.CATEGORY_ONE) {
-            if (level == Config.LEVEL_ONE) {
-                //rr.addAll(List.of(map.))
-                arr.addAll(List.of(sportsWords[0]));
-            } else if (level == Config.LEVEL_TWO) {
-                arr.addAll(List.of(sportsWords[1]));
-            } else {
-                arr.addAll(List.of(sportsWords[2]));
-            }
-
-        } else if (category == Config.CATEGORY_TWO) {
-            if (level == Config.LEVEL_ONE) {
-                arr.addAll(List.of(animalsWords[0]));
-            } else if (level == Config.LEVEL_TWO) {
-                arr.addAll(List.of(animalsWords[1]));
-            } else {
-                arr.addAll(List.of(animalsWords[2]));
-            }
-        } else if (category == Config.CATEGORY_THREE) {
-            if (level == Config.LEVEL_ONE) {
-                arr.addAll(List.of(natureWords[0]));
-            } else if (level == Config.LEVEL_TWO) {
-                arr.addAll(List.of(natureWords[1]));
-            } else {
-                arr.addAll(List.of(natureWords[2]));
-            }
-
-        } else {
-            if (level == 1) {
-                arr.addAll(List.of(countriesWords[0]));
-            } else if (level == 2) {
-                arr.addAll(List.of(countriesWords[1]));
-            } else {
-                arr.addAll(List.of(countriesWords[2]));
-            }
-        }
+        arr = SrvInitialization.getInfo(category,level);
         //System.out.println(arr);
-        //----------
+
+
 
         //Индекс для выбора слова из категории
         int indexWord = random.nextInt(arr.size()) + 0;
