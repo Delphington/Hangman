@@ -15,8 +15,7 @@ public class LogicGame {
 
         char symbol;
 
-        //TODO: Стереть строчку
-        printStream.println("str = " + ourWord + "\nCloneStr = " + foreignStr);
+        printStream.println(foreignStr);
 
         ArrayList<String> letter = new ArrayList<>(); //Массив для использованных букв
 
@@ -43,13 +42,15 @@ public class LogicGame {
 
             //Пользователь введ буквы, которой нет в слове
             if (ourWord.indexOf(String.valueOf(symbol)) == -1) {
-                // printStream.println("Такой буквы нет в слове!");
                 drawingGallow.increment();
                 drawingGallow.printGallows(System.out);
                 printStream.println(
                     Config.REMAINING_ATTEMPTS + (Config.TOTAL_ATTEMPTS - drawingGallow.getCountError()));
 
-                if (drawingGallow.getCountError() == Config.TOTAL_ATTEMPTS) {
+                //Вывод подсказки
+                if (drawingGallow.getCountError() == Config.ERROR_CASE_1) {
+                    printStream.println("Подсказка: " + SrvInitialization.wordAndHint.get(ourWord));
+                } else if (drawingGallow.getCountError() == Config.TOTAL_ATTEMPTS) {
                     printStream.println("----------------WE LOSED -----------------");
                     drawingGallow.setCountError(0);
                     break;

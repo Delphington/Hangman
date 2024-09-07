@@ -1,8 +1,6 @@
 package backend.academy;
 
-import java.io.PrintStream;
-import java.util.ArrayList;
-import java.util.List;
+import java.util.Map;
 import java.util.Random;
 import java.util.Scanner;
 import lombok.experimental.UtilityClass;
@@ -14,29 +12,27 @@ public class Main {
     //Уровень 2: слова из букв 5-8
     //Уровень 3: слова из букв 9-14
 
-
     Scanner scan = new Scanner(System.in);
     Random random = new Random();
-    ArrayList<String> arr;
-
+    Map<String, String> mapWordAndHint;
 
     public static void main(String[] args) {
         DrawingGallow drawingGallow = new DrawingGallow();
-        drawingGallow.printGallows(System.out);
 
         int category = Chosen.chooseCategory(scan, System.out, random);
         int level = Chosen.chooseLevel(scan, System.out, random);
 
-        arr = SrvInitialization.getInfo(category,level);
-        //System.out.println(arr);
-
-
+        try {
+            mapWordAndHint = SrvInitialization.getInfo(category, level);
+        } catch (Exception e) {
+            return;
+        }
 
         //Индекс для выбора слова из категории
-        int indexWord = random.nextInt(arr.size()) + 0;
+        int indexWord = random.nextInt(mapWordAndHint.size()) + 0;
 
         //Выбранное слово
-        String ourWord = new String(arr.get(indexWord));
+        String ourWord = (String) mapWordAndHint.keySet().toArray()[indexWord];
 
         //Строка, которая будет менятся и которую будем угадывать
         StringBuilder foreignStr = new StringBuilder();

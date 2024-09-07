@@ -8,12 +8,12 @@ public class Config {
     public static final int TOTAL_ATTEMPTS = 6;
 
     //Константы для количества ошибок
-    public static final int ERROR_FIRST_CASE = 1;
-    public static final int ERROR_SECOND_CASE = 2;
-    public static final int ERROR_THIRD_CASE = 3;
-    public static final int ERROR_FOURTH_CASE = 4;
-    public static final int ERROR_FIFTH_CASE = 5;
-    public static final int ERROR_SIXTH_CASE = 6;
+    public static final int ERROR_CASE_1 = 1;
+    public static final int ERROR_CASE_2 = 2;
+    public static final int ERROR_CASE_3 = 3;
+    public static final int ERROR_CASE_4 = 4;
+    public static final int ERROR_CASE_5 = 5;
+    public static final int ERROR_CASE_6 = 6;
 
     //Для выбора категорий: Природа, страны, животные и тд
     public static final int RANDOM_CATEGORY_MIN = 1;
@@ -33,5 +33,8 @@ public class Config {
     //Варнинги-строки
     public static final String WARNING_MESSAGE = "Ошибка! Введите число: ";
     public static final String REMAINING_ATTEMPTS = "Количество ваших попыток: ";
+
+    //Пути файлов
+    public static final String FILE_PATH_OF_WORD = "src/main/resources/WordDictionary.txt";
 
 }
