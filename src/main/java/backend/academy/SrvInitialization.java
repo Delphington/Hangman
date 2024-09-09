@@ -6,14 +6,11 @@ import java.io.FileReader;
 import java.io.IOException;
 import java.util.HashMap;
 import java.util.Map;
-import java.util.logging.Logger;
 
 public class SrvInitialization {
 
     private SrvInitialization() {
     }
-
-    private static final Logger LOGGER = Logger.getLogger(SrvInitialization.class.getName());
 
     public static Map<String, String> wordAndHint;
 
@@ -44,3 +41,4 @@ public class SrvInitialization {
 
     }
 }
+
