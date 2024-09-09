@@ -1,11 +1,11 @@
 package backend.academy;
 
 import java.io.BufferedReader;
+import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
 import java.util.HashMap;
 import java.util.Map;
-import java.util.logging.Level;
 import java.util.logging.Logger;
 
 public class SrvInitialization {
@@ -18,6 +18,7 @@ public class SrvInitialization {
     public static Map<String, String> wordAndHint;
 
     public static Map<String, String> getInfo(int category, int level) {
+
         String filePath = Config.FILE_PATH_OF_WORD;
         try (BufferedReader br = new BufferedReader(new FileReader(filePath))) {
             String line;
@@ -33,9 +34,13 @@ public class SrvInitialization {
                     break;
                 }
             }
+
+        } catch (FileNotFoundException e) {
+            throw new RuntimeException(e);
         } catch (IOException e) {
-            LOGGER.log(Level.SEVERE, "Ошибка при чтении файла", e);
+            throw new RuntimeException(e);
         }
         return wordAndHint;
+
     }
 }

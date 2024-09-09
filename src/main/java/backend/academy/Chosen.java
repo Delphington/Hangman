@@ -31,6 +31,7 @@ public class Chosen {
                 return random.nextInt(Config.RANDOM_CATEGORY_MAX) + Config.RANDOM_CATEGORY_MIN;
             } else {
                 try {
+                    // line = line.trim();
                     category = Integer.parseInt(line);
                     if (category >= Config.RANDOM_CATEGORY_MIN && category <= Config.RANDOM_CATEGORY_MAX) {
                         return category;
