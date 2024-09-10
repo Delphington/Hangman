@@ -46,6 +46,6 @@ public class SrvInitialization {
             throw new RuntimeException("IO error: " + e.getMessage(), e);
         }
 
-        return wordAndHint;
+        return new HashMap<>(wordAndHint);
     }
 }

@@ -5,10 +5,9 @@ import backend.academy.Config;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
-import org.mockito.Mockito;
 import java.io.ByteArrayOutputStream;
 import java.io.PrintStream;
-import java.util.Random;
+import java.security.SecureRandom;
 import java.util.Scanner;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.mockito.Mockito.mock;
@@ -16,12 +15,11 @@ import static org.mockito.Mockito.times;
 import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.when;
 
-/**
 public class ChosenTest {
 
     private Scanner scanner;
     private PrintStream printStream;
-    private Random random;
+    private SecureRandom random;
     private int category;
     private int level;
     private boolean curr;
@@ -46,7 +44,7 @@ public class ChosenTest {
     public void setUp() {
         scanner = mock(Scanner.class);
         printStream = mock(PrintStream.class);
-        random = mock(Random.class);
+        random = mock(SecureRandom.class);
     }
 
     //Проверим числа, которые можно вводить
@@ -73,50 +71,39 @@ public class ChosenTest {
     @Test
     public void inputChooseCategoryInvalid() {
         // Тест на выход за границу сверху
-        when(scanner.nextLine()).thenReturn("5", "1"); // Введем неверно, а потом верно
+        when(scanner.nextLine()).thenReturn("5", "1");
         int category = Chosen.chooseCategory(scanner, printStream, random);
-
         assertEquals(1, category); // Сравним верное значение
-        verify(printStream, times(1)).println(Config.WARNING_MESSAGE); // Проверим предупреждение
+        verify(printStream, times(1)).println(Config.WARNING_MESSAGE);
 
         // Выход снизу
-        when(scanner.nextLine()).thenReturn("0", "1"); // Введем неверно, а потом верно
+        when(scanner.nextLine()).thenReturn("0", "1");
         category = Chosen.chooseCategory(scanner, printStream, random);
-
-        assertEquals(1, category); // Сравним верное значение
-        verify(printStream, times(2)).println(Config.WARNING_MESSAGE); // Проверим предупреждение
+        assertEquals(1, category);
+        verify(printStream, times(2)).println(Config.WARNING_MESSAGE);
 
         //Ввод спецеального символа
-        when(scanner.nextLine()).thenReturn("№", "1"); // Введем неверно, а потом верно
+        when(scanner.nextLine()).thenReturn("№", "1");
         category = Chosen.chooseCategory(scanner, printStream, random);
 
-        assertEquals(1, category); // Сравним верное значение
-        verify(printStream, times(3)).println(Config.WARNING_MESSAGE); // Проверим предупреждение
+        assertEquals(1, category);
+        verify(printStream, times(3)).println(Config.WARNING_MESSAGE);
 
         //Ввод пробела
-        when(scanner.nextLine()).thenReturn(" ", "1"); // Введем неверно, а потом верно
+        when(scanner.nextLine()).thenReturn(" ", "1");
         category = Chosen.chooseCategory(scanner, printStream, random);
-
         assertEquals(1, category); // Сравним верное значение
-        verify(printStream, times(4)).println(Config.WARNING_MESSAGE); // Проверим предупреждение
-
-        //Ввод строки
-        when(scanner.nextLine()).thenReturn("abs", "1"); // Введем неверно, а потом верно
-        category = Chosen.chooseCategory(scanner, printStream, random);
-
-        assertEquals(1, category); // Сравним верное значение
-        verify(printStream, times(5)).println(Config.WARNING_MESSAGE); //
+        verify(printStream, times(4)).println(Config.WARNING_MESSAGE);
 
         //        //Ввод пустоты
-        when(scanner.nextLine()).thenReturn(""); // Simulate empty user input
-        when(random.nextInt(Config.RANDOM_CATEGORY_MAX)).thenReturn(1); // Simulate random category
+        when(scanner.nextLine()).thenReturn("");
+        when(random.nextInt(Config.RANDOM_CATEGORY_MAX)).thenReturn(1);
 
         // Act
         int actualCategory = Chosen.chooseCategory(scanner, printStream, random);
 
         // Assert
-        assertEquals(1 + Config.RANDOM_CATEGORY_MIN, actualCategory); // Проверяем, что возвращается случайная категория
-
+        assertEquals(1 + Config.RANDOM_CATEGORY_MIN, actualCategory);
     }
 
     @Test
@@ -139,49 +126,41 @@ public class ChosenTest {
     public void inputChooseLevelInvalid() {
 
         // Тест на выход за границу сверху
-        when(scanner.nextLine()).thenReturn("5", "1"); // Введем неверно, а потом верно
+        when(scanner.nextLine()).thenReturn("5", "1");
         level = Chosen.chooseLevel(scanner, printStream, random);
-
-        assertEquals(1, level); // Сравним верное значение
-        verify(printStream, times(1)).println(Config.WARNING_MESSAGE); // Проверим предупреждение
+        assertEquals(1, level);
+        verify(printStream, times(1)).println(Config.WARNING_MESSAGE);
 
         // Выход снизу
-        when(scanner.nextLine()).thenReturn("0", "1"); // Введем неверно, а потом верно
+        when(scanner.nextLine()).thenReturn("0", "1");
         level = Chosen.chooseLevel(scanner, printStream, random);
-
         assertEquals(1, level); // Сравним верное значение
-        verify(printStream, times(2)).println(Config.WARNING_MESSAGE); // Проверим предупреждение
+        verify(printStream, times(2)).println(Config.WARNING_MESSAGE);
 
         //Ввод спецеального символа
-        when(scanner.nextLine()).thenReturn("№", "1"); // Введем неверно, а потом верно
+        when(scanner.nextLine()).thenReturn("№", "1");
         level = Chosen.chooseLevel(scanner, printStream, random);
-
-        assertEquals(1, level); // Сравним верное значение
-        verify(printStream, times(3)).println(Config.WARNING_MESSAGE); // Проверим предупреждение
+        assertEquals(1, level);
+        verify(printStream, times(3)).println(Config.WARNING_MESSAGE);
 
         //Ввод пробела
-        when(scanner.nextLine()).thenReturn(" ", "1"); // Введем неверно, а потом верно
+        when(scanner.nextLine()).thenReturn(" ", "1");
         level = Chosen.chooseLevel(scanner, printStream, random);
-
-        assertEquals(1, level); // Сравним верное значение
-        verify(printStream, times(4)).println(Config.WARNING_MESSAGE); // Проверим предупреждение
+        assertEquals(1, level);
+        verify(printStream, times(4)).println(Config.WARNING_MESSAGE);
 
         //Ввод строки
-        when(scanner.nextLine()).thenReturn("abs", "1"); // Введем неверно, а потом верно
+        when(scanner.nextLine()).thenReturn("abs", "1");
         level = Chosen.chooseLevel(scanner, printStream, random);
+        assertEquals(1, level);
+        verify(printStream, times(5)).println(Config.WARNING_MESSAGE);
 
-        assertEquals(1, level); // Сравним верное значение
-        verify(printStream, times(5)).println(Config.WARNING_MESSAGE); //
+        //Ввод пустоты
+        when(scanner.nextLine()).thenReturn("");
+        when(random.nextInt(Config.RANDOM_CATEGORY_MAX)).thenReturn(1);
 
-        //        //Ввод пустоты
-        when(scanner.nextLine()).thenReturn(""); // Simulate empty user input
-        when(random.nextInt(Config.RANDOM_CATEGORY_MAX)).thenReturn(1); // Simulate random category
-
-        // Act
         int actualCategory = Chosen.chooseCategory(scanner, printStream, random);
-
-        // Assert
-        assertEquals(1 + Config.RANDOM_CATEGORY_MIN, actualCategory); // Проверяем, что возвращается случайная категория
+        assertEquals(1 + Config.RANDOM_CATEGORY_MIN, actualCategory);
     }
 
     @Test
@@ -228,30 +207,27 @@ public class ChosenTest {
     public void chooseActionInvalid() {
 
         //Не тот символ
-        when(scanner.nextLine()).thenReturn("k", "с"); // Введем неверно, а потом верно
+        when(scanner.nextLine()).thenReturn("k", "с");
         curr = Chosen.chooseAction(printStream, scanner);
-        assertEquals(true, curr); // Сравним верное значение
-        verify(printStream, times(1)).println(Config.MESSAGE); // Проверим предупреждение
+        assertEquals(true, curr);
+        verify(printStream, times(1)).println(Config.MESSAGE);
 
         //Не тот спецеальный символ
-        when(scanner.nextLine()).thenReturn("#", "с"); // Введем неверно, а потом верно
+        when(scanner.nextLine()).thenReturn("#", "с");
         curr = Chosen.chooseAction(printStream, scanner);
-        assertEquals(true, curr); // Сравним верное значение
-        verify(printStream, times(2)).println(Config.MESSAGE); // Проверим предупреждение
+        assertEquals(true, curr);
+        verify(printStream, times(2)).println(Config.MESSAGE);
 
         //Пробел
-        when(scanner.nextLine()).thenReturn(" ", "с"); // Введем неверно, а потом верно
+        when(scanner.nextLine()).thenReturn(" ", "с");
         curr = Chosen.chooseAction(printStream, scanner);
-        assertEquals(true, curr); // Сравним верное значение
-        verify(printStream, times(3)).println(Config.MESSAGE); // Проверим предупреждение
+        assertEquals(true, curr);
+        verify(printStream, times(3)).println(Config.MESSAGE);
 
         //Пустота
-        when(scanner.nextLine()).thenReturn("", "с"); // Введем неверно, а потом верно
+        when(scanner.nextLine()).thenReturn("", "с");
         curr = Chosen.chooseAction(printStream, scanner);
-        assertEquals(true, curr); // Сравним верное значение
-        verify(printStream, times(4)).println(Config.MESSAGE); // Проверим предупреждение
-
+        assertEquals(true, curr);
+        verify(printStream, times(4)).println(Config.MESSAGE);
     }
 }
-
-*/
