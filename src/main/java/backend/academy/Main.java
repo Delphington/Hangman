@@ -1,5 +1,6 @@
 package backend.academy;
 
+import java.nio.charset.StandardCharsets;
 import java.util.Map;
 import java.util.Random;
 import java.util.Scanner;
@@ -12,7 +13,7 @@ public class Main {
     //Уровень 2: слова из букв 5-8
     //Уровень 3: слова из букв 9-14
 
-    Scanner scan = new Scanner(System.in);
+    Scanner scan = new Scanner(System.in, StandardCharsets.UTF_8);
     Random random = new Random();
     Map<String, String> mapWordAndHint;
     int indexWord;

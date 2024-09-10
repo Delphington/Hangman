@@ -10,7 +10,8 @@ public class LogicGame {
 
     public static void play(
         DrawingGallow drawingGallow, String ourWord, StringBuilder foreignStr,
-        StringBuilder cloneForeignStr, PrintStream printStream, Scanner scan) {
+        StringBuilder cloneForeignStr, PrintStream printStream, Scanner scan
+    ) {
 
         char symbol;
 
@@ -48,7 +49,7 @@ public class LogicGame {
 
                 //Вывод подсказки
                 if (drawingGallow.getCountError() == Config.ERROR_CASE_1) {
-                    printStream.println("Подсказка: " + SrvInitialization.wordAndHint.get(ourWord));
+                    printStream.println("Подсказка: " + SrvInitialization.getWordAndHint().get(ourWord));
                 } else if (drawingGallow.getCountError() == Config.TOTAL_ATTEMPTS) {
                     printStream.println("----------------WE LOSED -----------------");
                     drawingGallow.setCountError(0);

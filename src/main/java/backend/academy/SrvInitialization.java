@@ -5,8 +5,8 @@ import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.io.InputStreamReader;
-
 import java.nio.charset.StandardCharsets;
+import java.util.HashMap;
 import java.util.Map;
 
 public class SrvInitialization {
@@ -14,7 +14,11 @@ public class SrvInitialization {
     private SrvInitialization() {
     }
 
-    public static Map<String, String> wordAndHint;
+    private static Map<String, String> wordAndHint;
+
+    public static Map<String, String> getWordAndHint() {
+        return wordAndHint;
+    }
 
     public static Map<String, String> getInfo(int category, int level) {
 
@@ -26,6 +30,7 @@ public class SrvInitialization {
             while ((line = br.readLine()) != null) {
                 if (line.contains("[" + category + ":" + level + "]")) {
                     String str;
+                    wordAndHint =  new HashMap<>();
                     while ((str = br.readLine()) != null && !str.contains("[")) {
                         String[] temp = str.trim().split(":");
                         if (temp.length == 2) {
