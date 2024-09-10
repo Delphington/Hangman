@@ -1,8 +1,8 @@
 package backend.academy;
 
 import java.nio.charset.StandardCharsets;
+import java.security.SecureRandom;
 import java.util.Map;
-import java.util.Random;
 import java.util.Scanner;
 import lombok.experimental.UtilityClass;
 
@@ -14,11 +14,14 @@ public class Main {
     //Уровень 3: слова из букв 9-14
 
     Scanner scan = new Scanner(System.in, StandardCharsets.UTF_8);
-    Random random = new Random();
+   // Random random = new Random();
+    SecureRandom random = new SecureRandom();
     Map<String, String> mapWordAndHint;
     int indexWord;
     int category;
     int level;
+//    private final char SPACE = ' ';
+//    private final char UNDERLINE = ' ';
 
     public static void main(String[] args) {
         DrawingGallow drawingGallow = new DrawingGallow();

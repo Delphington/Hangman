@@ -1,7 +1,7 @@
 package backend.academy;
 
 import java.io.PrintStream;
-import java.util.Random;
+import java.security.SecureRandom;
 import java.util.Scanner;
 
 public class Chosen {
@@ -13,7 +13,7 @@ public class Chosen {
 
     static String line = null;
 
-    public static int chooseCategory(Scanner scan, PrintStream printStream, Random random) {
+    public static int chooseCategory(Scanner scan, PrintStream printStream, SecureRandom random) {
 
         printStream.println("Выберите номер категории слов: \n"
 
@@ -48,7 +48,7 @@ public class Chosen {
         }
     }
 
-    public static int chooseLevel(Scanner scan, PrintStream printStream, Random random) {
+    public static int chooseLevel(Scanner scan, PrintStream printStream, SecureRandom random) {
 
         printStream.println("Выберите уровень сложности: \n"
             + "[" + Config.LEVEL_ONE + "] Легкий \n"

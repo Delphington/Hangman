@@ -29,7 +29,7 @@ public class DrawingGallow {
 
             printStream.print("  _ _ _ _ _ _\n");
             for (int i = 0; i <= Config.TOTAL_ATTEMPTS - countError; i++) {
-                printStream.print("|");
+                printStream.print(HELPSTRING);
                 if (i == 0) {
                     //Разрисовка висилица в зависимости от количества ошибок
                     switch (countError) {

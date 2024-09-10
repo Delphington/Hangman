@@ -17,7 +17,7 @@ public class SrvInitialization {
     private static Map<String, String> wordAndHint;
 
     public static Map<String, String> getWordAndHint() {
-        return wordAndHint;
+        return new HashMap<>(wordAndHint);
     }
 
     public static Map<String, String> getInfo(int category, int level) {
@@ -30,7 +30,7 @@ public class SrvInitialization {
             while ((line = br.readLine()) != null) {
                 if (line.contains("[" + category + ":" + level + "]")) {
                     String str;
-                    wordAndHint =  new HashMap<>();
+                    wordAndHint = new HashMap<>();
                     while ((str = br.readLine()) != null && !str.contains("[")) {
                         String[] temp = str.trim().split(":");
                         if (temp.length == 2) {
