@@ -17,67 +17,84 @@ public class DrawingGallow {
         countError++;
     }
 
-    private final static String FIRSTSTRING = "           |";
-    private final static String SECONDSTRING = "|           0";
-    private final static String THIRDSTRING = "|          /";
-    private final static String FOURTHSTRING = " \\";
-    private final static String FIFTHSTRING = "|          /|\\";
-    private final static String HELPSTRING = "|";
+
+
+
+    private enum GallowEnum {
+        STEP_1("           |"),
+        STEP_2("|           0"),
+        STEP_3("|          /"),
+        STEP_4(" \\"),
+        STEP_5("|          /|\\"),
+        STEP_HELP("|");
+
+        public String getValue() {
+            return value;
+        }
+
+        private final String value;
+
+        GallowEnum(String value) {
+            this.value = value;
+        }
+    }
+
+
 
     public void printGallows(PrintStream printStream) {
         if (countError <= Config.TOTAL_ATTEMPTS && countError > 0) {
 
             printStream.print("  _ _ _ _ _ _\n");
             for (int i = 0; i <= Config.TOTAL_ATTEMPTS - countError; i++) {
-                printStream.print(HELPSTRING);
+                printStream.print(GallowEnum.STEP_HELP.getValue());
                 if (i == 0) {
                     //Разрисовка висилица в зависимости от количества ошибок
                     switch (countError) {
                         case Config.ERROR_CASE_1:
-                            printStream.print(FIRSTSTRING + "\n");
-                            printStream.print(SECONDSTRING);
+                            printStream.print(GallowEnum.STEP_1.getValue() + "\n");
+                            printStream.print(GallowEnum.STEP_2.getValue());
                             break;
 
                         case Config.ERROR_CASE_2:
-                            printStream.print(FIRSTSTRING + "\n");
-                            printStream.print(SECONDSTRING + "\n");
-                            printStream.print(THIRDSTRING);
+                            printStream.print(GallowEnum.STEP_1.getValue() + "\n");
+                            printStream.print(GallowEnum.STEP_2.getValue() + "\n");
+                            printStream.print(GallowEnum.STEP_3.getValue());
                             break;
 
                         case Config.ERROR_CASE_3:
-                            printStream.print(FIRSTSTRING + "\n");
-                            printStream.print(SECONDSTRING + "\n");
-                            printStream.print(THIRDSTRING);
-                            printStream.print(FOURTHSTRING + "\n");
-                            printStream.print(HELPSTRING);
+                            printStream.print(GallowEnum.STEP_1.getValue() + "\n");
+                            printStream.print(GallowEnum.STEP_2.getValue() + "\n");
+                            printStream.print(GallowEnum.STEP_3.getValue());
+                            printStream.print(GallowEnum.STEP_4.getValue() + "\n");
+                            printStream.print(GallowEnum.STEP_HELP.getValue());
                             break;
 
                         case Config.ERROR_CASE_4:
-                            printStream.print(FIRSTSTRING + "\n");
-                            printStream.print(SECONDSTRING + "\n");
-                            printStream.print(FIFTHSTRING + "\n");
-                            printStream.print(HELPSTRING + "\n");
-                            printStream.print(HELPSTRING);
+                            printStream.print(GallowEnum.STEP_1.getValue() + "\n");
+                            printStream.print(GallowEnum.STEP_2.getValue() + "\n");
+                            printStream.print(GallowEnum.STEP_5.getValue() + "\n");
+                            printStream.print(GallowEnum.STEP_HELP.getValue() + "\n");
+                            printStream.print(GallowEnum.STEP_HELP.getValue());
                             break;
 
                         case Config.ERROR_CASE_5:
-                            printStream.print(FIRSTSTRING + "\n");
-                            printStream.print(SECONDSTRING + "\n");
-                            printStream.print(FIFTHSTRING + "\n");
-                            printStream.print(THIRDSTRING + "\n");
-                            printStream.print(HELPSTRING + "\n");
-                            printStream.print(HELPSTRING);
+                            printStream.print(GallowEnum.STEP_1.getValue() + "\n");
+                            printStream.print(GallowEnum.STEP_2.getValue() + "\n");
+                            printStream.print(GallowEnum.STEP_5.getValue() + "\n");
+                            printStream.print(GallowEnum.STEP_3.getValue() + "\n");
+                            printStream.print(GallowEnum.STEP_HELP.getValue() + "\n");
+                            printStream.print(GallowEnum.STEP_HELP.getValue());
                             break;
 
                         case Config.ERROR_CASE_6:
-                            printStream.print(FIRSTSTRING + "\n");
-                            printStream.print(SECONDSTRING + "\n");
-                            printStream.print(FIFTHSTRING + "\n");
-                            printStream.print(THIRDSTRING);
-                            printStream.print(FOURTHSTRING + "\n");
-                            printStream.print(HELPSTRING + "\n");
-                            printStream.print(HELPSTRING + "\n");
-                            printStream.print(HELPSTRING + "\n");
+                            printStream.print(GallowEnum.STEP_1.getValue() + "\n");
+                            printStream.print(GallowEnum.STEP_2.getValue() + "\n");
+                            printStream.print(GallowEnum.STEP_5.getValue() + "\n");
+                            printStream.print(GallowEnum.STEP_3.getValue());
+                            printStream.print(GallowEnum.STEP_4.getValue() + "\n");
+                            printStream.print(GallowEnum.STEP_HELP.getValue() + "\n");
+                            printStream.print(GallowEnum.STEP_HELP.getValue() + "\n");
+                            printStream.print(GallowEnum.STEP_HELP.getValue() + "\n");
                             break;
                         default:
                             printStream.println("Error");

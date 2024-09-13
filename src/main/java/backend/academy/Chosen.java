@@ -85,11 +85,11 @@ public class Chosen {
             if (line.isEmpty()) {
                 printStream.println(Config.MESSAGE);
             } else {
-                if (CheckDate.checkChar(line)
+                if (CheckData.checkChar(line)
                     && line.equalsIgnoreCase("C")
                     || line.equalsIgnoreCase("С")) {
                     return true;
-                } else if (CheckDate.checkChar(line)
+                } else if (CheckData.checkChar(line)
                     && line.equalsIgnoreCase("E")
                     || line.equalsIgnoreCase("Е")) {
                     printStream.println("Игра завершена!");

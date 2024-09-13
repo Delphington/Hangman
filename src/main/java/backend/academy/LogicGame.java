@@ -27,7 +27,7 @@ public class LogicGame {
             while (true) {
                 printStream.println("Введите букву: ");
                 String temp = scan.nextLine().trim().toLowerCase();
-                if (CheckDate.checkChar(temp)) {  //проверка на норм символы
+                if (CheckData.checkChar(temp)) {  //проверка на норм символы
                     symbol = temp.charAt(0);
                     if (letter.contains(Character.toString(symbol))) {
                         printStream.println("Внимание! Вы уже вводили эту букву, попробуйте еще раз!");

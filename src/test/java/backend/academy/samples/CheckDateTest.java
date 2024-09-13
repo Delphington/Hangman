@@ -1,6 +1,6 @@
 package backend.academy.samples;
 
-import backend.academy.CheckDate;
+import backend.academy.CheckData;
 import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.assertFalse;
 import static org.junit.jupiter.api.Assertions.assertTrue;
@@ -10,35 +10,35 @@ public class CheckDateTest {
 
     @Test
     public void testCheckCharWithSingleLetter() {
-        assertTrue(CheckDate.checkChar("a")); // маленькая буква
-        assertTrue(CheckDate.checkChar("Z")); // заглавная буква
+        assertTrue(CheckData.checkChar("a")); // маленькая буква
+        assertTrue(CheckData.checkChar("Z")); // заглавная буква
     }
 
     @Test
     public void testCheckCharWithSingleLetterRu() {
-        assertTrue(CheckDate.checkChar("р")); // маленькая буква
-        assertTrue(CheckDate.checkChar("Р")); // заглавная буква
+        assertTrue(CheckData.checkChar("р")); // маленькая буква
+        assertTrue(CheckData.checkChar("Р")); // заглавная буква
     }
 
     @Test
     public void testCheckCharWithNonLetter() {
-        assertFalse(CheckDate.checkChar("1")); // цифра
-        assertFalse(CheckDate.checkChar("@")); // специальный символ
-        assertFalse(CheckDate.checkChar("!")); // специальный символ
-        assertFalse(CheckDate.checkChar(" ")); // пробел
+        assertFalse(CheckData.checkChar("1")); // цифра
+        assertFalse(CheckData.checkChar("@")); // специальный символ
+        assertFalse(CheckData.checkChar("!")); // специальный символ
+        assertFalse(CheckData.checkChar(" ")); // пробел
     }
 
     @Test
     public void testCheckCharWithMultipleCharacters() {
-        assertFalse(CheckDate.checkChar("ab")); // две буквы
-        assertFalse(CheckDate.checkChar("12")); // две цифры
-        assertFalse(CheckDate.checkChar("a1")); // буква и цифра
-        assertFalse(CheckDate.checkChar("a!")); // буква и специальный символ
+        assertFalse(CheckData.checkChar("ab")); // две буквы
+        assertFalse(CheckData.checkChar("12")); // две цифры
+        assertFalse(CheckData.checkChar("a1")); // буква и цифра
+        assertFalse(CheckData.checkChar("a!")); // буква и специальный символ
     }
 
     @Test
     public void testCheckCharWithEmptyString() {
-        assertFalse(CheckDate.checkChar("")); // пустая строка
+        assertFalse(CheckData.checkChar("")); // пустая строка
     }
 
 }

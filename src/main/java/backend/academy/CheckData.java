@@ -1,7 +1,7 @@
 package backend.academy;
 
-public class CheckDate {
-    private CheckDate() {
+public class CheckData {
+    private CheckData() {
     }
 
     public static boolean checkChar(String s) {
