@@ -4,7 +4,7 @@ import java.io.PrintStream;
 import java.security.SecureRandom;
 import java.util.Scanner;
 
-public class Chosen {
+public class Chosen implements Constants {
     private Chosen() {
     }
 
@@ -17,10 +17,10 @@ public class Chosen {
 
         printStream.println("Выберите номер категории слов: \n"
 
-            + "[" + Config.CATEGORY_ONE + "] Спорт \n"
-            + "[" + Config.CATEGORY_TWO + "] Животные \n"
-            + "[" + Config.CATEGORY_THREE + "] Природа \n"
-            + "[" + Config.CATEGORY_FOUR + "] Страны"
+            + "[" + CATEGORY_SPORT_1 + "] Спорт \n"
+            + "[" + CATEGORY_ANIMAL_2 + "] Животные \n"
+            + "[" + CATEGORY_NATURE_3 + "] Природа \n"
+            + "[" + CATEGORY_COUNTRY_4 + "] Страны"
 
         );
 
@@ -51,9 +51,9 @@ public class Chosen {
     public static int chooseLevel(Scanner scan, PrintStream printStream, SecureRandom random) {
 
         printStream.println("Выберите уровень сложности: \n"
-            + "[" + Config.LEVEL_ONE + "] Легкий \n"
-            + "[" + Config.LEVEL_TWO + "] Средний \n"
-            + "[" + Config.LEVEL_THREE + "] Сложный"
+            + "[" + LEVEL_1 + "] Легкий \n"
+            + "[" + LEVEL_2 + "] Средний \n"
+            + "[" + LEVEL_3 + "] Сложный"
         );
 
         while (true) {

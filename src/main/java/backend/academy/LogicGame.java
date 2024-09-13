@@ -15,12 +15,13 @@ public class LogicGame {
 
         char symbol;
 
-        printStream.println(foreignStr);
+       // printStream.println(foreignStr);
 
         ArrayList<String> letter = new ArrayList<>(); //Массив для использованных букв
 
         printStream.println(Config.REMAINING_ATTEMPTS + (Config.TOTAL_ATTEMPTS - drawingGallow.getCountError()));
 
+        printStream.println(foreignStr); //Вывод маски
         while (true) {
 
             //Проверка корректности ввода символа
@@ -40,22 +41,29 @@ public class LogicGame {
                 }
             }
 
-            //Пользователь введ буквы, которой нет в слове
+            //Пользователь ввел буквы, которой нет в слове
             if (ourWord.indexOf(String.valueOf(symbol)) == -1) {
                 drawingGallow.increment();
                 drawingGallow.printGallows(System.out);
+                //Вывод оставшихся попыток
                 printStream.println(
                     Config.REMAINING_ATTEMPTS + (Config.TOTAL_ATTEMPTS - drawingGallow.getCountError()));
 
                 //Вывод подсказки
                 if (drawingGallow.getCountError() == Config.ERROR_CASE_1) {
                     printStream.println("Подсказка: " + SrvInitialization.getWordAndHint().get(ourWord));
+                   // printStream.println(foreignStr); //Вывод маски
                 } else if (drawingGallow.getCountError() == Config.TOTAL_ATTEMPTS) {
                     printStream.println("----------------WE LOSED -----------------");
+                    printStream.println("# Загаданное слово: " + ourWord);
                     drawingGallow.setCountError(0);
                     break;
                 }
+                printStream.println(foreignStr); //Вывод маски
+
             } else {
+                // printStream.println(foreignStr);
+
                 //Случай, когда пользователь смог отгадать буквы
                 for (int i = 0; i < cloneForeignStr.length(); i++) {
                     if (symbol == cloneForeignStr.charAt(i)) {

@@ -1,6 +1,6 @@
 package backend.academy;
 
-public class CheckData {
+public final class CheckData {
     private CheckData() {
     }
 

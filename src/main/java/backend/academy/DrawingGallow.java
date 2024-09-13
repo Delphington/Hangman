@@ -17,9 +17,6 @@ public class DrawingGallow {
         countError++;
     }
 
-
-
-
     private enum GallowEnum {
         STEP_1("           |"),
         STEP_2("|           0"),
@@ -38,8 +35,6 @@ public class DrawingGallow {
             this.value = value;
         }
     }
-
-
 
     public void printGallows(PrintStream printStream) {
         if (countError <= Config.TOTAL_ATTEMPTS && countError > 0) {
