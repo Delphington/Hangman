@@ -4,7 +4,7 @@ import java.io.PrintStream;
 import java.security.SecureRandom;
 import java.util.Scanner;
 
-public final class Chosen implements Constants {
+public final class Chosen {
     private Chosen() {
     }
 
@@ -15,7 +15,10 @@ public final class Chosen implements Constants {
 
     public static int chooseCategory(Scanner scan, PrintStream printStream, SecureRandom random) {
 
-        WordCategory.printCategories();
+        printStream.println("Выберите номер категории слов: ");
+        for (WordCategory wordCategory : WordCategory.values()) {
+            printStream.println("[" + (wordCategory.ordinal() + 1) + "] " + wordCategory.getDescription());
+        }
 
         while (true) {
             line = scan.nextLine();
@@ -42,7 +45,10 @@ public final class Chosen implements Constants {
 
     public static int chooseLevel(Scanner scan, PrintStream printStream, SecureRandom random) {
 
-        Level.printLevel();
+        printStream.println("Выберите уровень сложности: ");
+        for (Level v : Level.values()) {
+            printStream.println("[" + (v.ordinal() + 1) + "] " + v.getValue());
+        }
 
         while (true) {
             line = scan.nextLine();

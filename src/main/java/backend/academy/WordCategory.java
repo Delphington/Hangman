@@ -15,10 +15,4 @@ public enum WordCategory {
         return description;
     }
 
-    public static void printCategories() {
-        System.out.println("Выберите номер категории слов: ");
-        for (WordCategory category : WordCategory.values()) {
-            System.out.println("[" + (category.ordinal() + 1) + "] " + category.getDescription());
-        }
-    }
 }
