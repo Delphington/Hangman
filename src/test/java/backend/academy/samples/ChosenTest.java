@@ -74,26 +74,26 @@ public class ChosenTest {
         when(scanner.nextLine()).thenReturn("5", "1");
         int category = Chosen.chooseCategory(scanner, printStream, random);
         assertEquals(1, category); // Сравним верное значение
-        verify(printStream, times(1)).println(Config.WARNING_MESSAGE);
+        verify(printStream, times(1)).println(Config.WARNING_INCORRECT_NUMBER);
 
         // Выход снизу
         when(scanner.nextLine()).thenReturn("0", "1");
         category = Chosen.chooseCategory(scanner, printStream, random);
         assertEquals(1, category);
-        verify(printStream, times(2)).println(Config.WARNING_MESSAGE);
+        verify(printStream, times(2)).println(Config.WARNING_INCORRECT_NUMBER);
 
         //Ввод спецеального символа
         when(scanner.nextLine()).thenReturn("№", "1");
         category = Chosen.chooseCategory(scanner, printStream, random);
 
         assertEquals(1, category);
-        verify(printStream, times(3)).println(Config.WARNING_MESSAGE);
+        verify(printStream, times(3)).println(Config.WARNING_INCORRECT_NUMBER);
 
         //Ввод пробела
         when(scanner.nextLine()).thenReturn(" ", "1");
         category = Chosen.chooseCategory(scanner, printStream, random);
         assertEquals(1, category); // Сравним верное значение
-        verify(printStream, times(4)).println(Config.WARNING_MESSAGE);
+        verify(printStream, times(4)).println(Config.WARNING_INCORRECT_NUMBER);
 
         //        //Ввод пустоты
         when(scanner.nextLine()).thenReturn("");
@@ -129,31 +129,31 @@ public class ChosenTest {
         when(scanner.nextLine()).thenReturn("5", "1");
         level = Chosen.chooseLevel(scanner, printStream, random);
         assertEquals(1, level);
-        verify(printStream, times(1)).println(Config.WARNING_MESSAGE);
+        verify(printStream, times(1)).println(Config.WARNING_INCORRECT_NUMBER);
 
         // Выход снизу
         when(scanner.nextLine()).thenReturn("0", "1");
         level = Chosen.chooseLevel(scanner, printStream, random);
         assertEquals(1, level); // Сравним верное значение
-        verify(printStream, times(2)).println(Config.WARNING_MESSAGE);
+        verify(printStream, times(2)).println(Config.WARNING_INCORRECT_NUMBER);
 
         //Ввод спецеального символа
         when(scanner.nextLine()).thenReturn("№", "1");
         level = Chosen.chooseLevel(scanner, printStream, random);
         assertEquals(1, level);
-        verify(printStream, times(3)).println(Config.WARNING_MESSAGE);
+        verify(printStream, times(3)).println(Config.WARNING_INCORRECT_NUMBER);
 
         //Ввод пробела
         when(scanner.nextLine()).thenReturn(" ", "1");
         level = Chosen.chooseLevel(scanner, printStream, random);
         assertEquals(1, level);
-        verify(printStream, times(4)).println(Config.WARNING_MESSAGE);
+        verify(printStream, times(4)).println(Config.WARNING_INCORRECT_NUMBER);
 
         //Ввод строки
         when(scanner.nextLine()).thenReturn("abs", "1");
         level = Chosen.chooseLevel(scanner, printStream, random);
         assertEquals(1, level);
-        verify(printStream, times(5)).println(Config.WARNING_MESSAGE);
+        verify(printStream, times(5)).println(Config.WARNING_INCORRECT_NUMBER);
 
         //Ввод пустоты
         when(scanner.nextLine()).thenReturn("");
@@ -210,24 +210,24 @@ public class ChosenTest {
         when(scanner.nextLine()).thenReturn("k", "с");
         curr = Chosen.chooseAction(printStream, scanner);
         assertEquals(true, curr);
-        verify(printStream, times(1)).println(Config.MESSAGE);
+        verify(printStream, times(1)).println(Config.MESSAGE_INPUT_LETTER);
 
         //Не тот спецеальный символ
         when(scanner.nextLine()).thenReturn("#", "с");
         curr = Chosen.chooseAction(printStream, scanner);
         assertEquals(true, curr);
-        verify(printStream, times(2)).println(Config.MESSAGE);
+        verify(printStream, times(2)).println(Config.MESSAGE_INPUT_LETTER);
 
         //Пробел
         when(scanner.nextLine()).thenReturn(" ", "с");
         curr = Chosen.chooseAction(printStream, scanner);
         assertEquals(true, curr);
-        verify(printStream, times(3)).println(Config.MESSAGE);
+        verify(printStream, times(3)).println(Config.MESSAGE_INPUT_LETTER);
 
         //Пустота
         when(scanner.nextLine()).thenReturn("", "с");
         curr = Chosen.chooseAction(printStream, scanner);
         assertEquals(true, curr);
-        verify(printStream, times(4)).println(Config.MESSAGE);
+        verify(printStream, times(4)).println(Config.MESSAGE_INPUT_LETTER);
     }
 }

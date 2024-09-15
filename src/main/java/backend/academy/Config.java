@@ -5,6 +5,7 @@ public final class Config {
 
     }
 
+    //Вариации ошибок
     public static final int ERROR_CASE_1 = 1;
     public static final int ERROR_CASE_2 = 2;
     public static final int ERROR_CASE_3 = 3;
@@ -23,12 +24,12 @@ public final class Config {
     public static final int RANDOM_LEVEL_MAX = 3;
 
     //Варнинги-строки
-    public static final String WARNING_MESSAGE = "Ошибка! Введите число: ";
-    public static final String MESSAGE = "Введите букву: ";
+    public static final String WARNING_INCORRECT_NUMBER = "Ошибка! Введите цифру: ";
+    public static final String MESSAGE_INPUT_LETTER = "Введите букву: ";
 
     public static final String REMAINING_ATTEMPTS = "Количество ваших попыток: ";
 
-    //Пути файлов
+    //Путь файла
     public static final String FILE_PATH_OF_WORD = "src/main/resources/WordDictionary.txt";
 
 }

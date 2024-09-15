@@ -16,7 +16,7 @@ public final class LogicGame {
         char symbol;
         boolean isUsedHint = false;
 
-        ArrayList<String> letter = new ArrayList<>(); //Массив для использованных букв
+        ArrayList<String> usedLetters = new ArrayList<>(); //Массив для использованных букв
 
         printStream.println(Config.REMAINING_ATTEMPTS + (Config.TOTAL_ATTEMPTS - drawingGallow.getCountError()));
 
@@ -38,10 +38,10 @@ public final class LogicGame {
 
                 } else if (CheckData.checkChar(temp)) {  //проверка на норм символы
                     symbol = temp.charAt(0);
-                    if (letter.contains(Character.toString(symbol))) {
+                    if (usedLetters.contains(Character.toString(symbol))) {
                         printStream.println("Внимание! Вы уже вводили эту букву, попробуйте еще раз!");
                     } else {
-                        letter.add(Character.toString(symbol));
+                        usedLetters.add(Character.toString(symbol));
                         break;
                     }
                 } else {

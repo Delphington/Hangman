@@ -5,6 +5,7 @@ import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.io.InputStreamReader;
+import java.io.PrintStream;
 import java.nio.charset.StandardCharsets;
 import java.util.HashMap;
 import java.util.Map;
@@ -20,7 +21,7 @@ public final class SrvInitialization {
         return new HashMap<>(wordAndHint);
     }
 
-    public static Map<String, String> getInfo(int category, int level) {
+    public static Map<String, String> getInfo(int category, int level, PrintStream printStream) {
 
         String filePath = Config.FILE_PATH_OF_WORD;
 
@@ -41,9 +42,11 @@ public final class SrvInitialization {
                 }
             }
         } catch (FileNotFoundException e) {
-            throw new RuntimeException("File not found: " + e.getMessage(), e);
+            printStream.println(e.getMessage());
+            //throw new RuntimeException("File not found: " + e.getMessage(), e);
         } catch (IOException e) {
-            throw new RuntimeException("IO error: " + e.getMessage(), e);
+            printStream.println(e.getMessage());
+            //throw new RuntimeException("IO error: " + e.getMessage(), e);
         }
 
         return new HashMap<>(wordAndHint);

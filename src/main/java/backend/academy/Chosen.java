@@ -32,9 +32,9 @@ public final class Chosen {
                     if (category >= Config.RANDOM_CATEGORY_MIN && category <= Config.RANDOM_CATEGORY_MAX) {
                         return category;
                     }
-                    printStream.println(Config.WARNING_MESSAGE);
+                    printStream.println(Config.WARNING_INCORRECT_NUMBER);
                 } catch (Exception e) {
-                    printStream.println(Config.WARNING_MESSAGE);
+                    printStream.println(Config.WARNING_INCORRECT_NUMBER);
 
                 }
 
@@ -62,10 +62,10 @@ public final class Chosen {
                     if (level >= Config.RANDOM_LEVEL_MIN && level <= Config.RANDOM_LEVEL_MAX) {
                         return level;
                     }
-                    printStream.println(Config.WARNING_MESSAGE);
+                    printStream.println(Config.WARNING_INCORRECT_NUMBER);
 
                 } catch (Exception e) {
-                    printStream.println(Config.WARNING_MESSAGE);
+                    printStream.println(Config.WARNING_INCORRECT_NUMBER);
 
                 }
             }
@@ -77,7 +77,7 @@ public final class Chosen {
         while (true) {
             line = scan.nextLine().trim();
             if (line.isEmpty()) {
-                printStream.println(Config.MESSAGE);
+                printStream.println(Config.MESSAGE_INPUT_LETTER);
             } else {
                 if (CheckData.checkChar(line)
                     && line.equalsIgnoreCase("C")
@@ -89,7 +89,7 @@ public final class Chosen {
                     printStream.println("Игра завершена!");
                     return false;
                 } else {
-                    printStream.println(Config.MESSAGE);
+                    printStream.println(Config.MESSAGE_INPUT_LETTER);
                 }
             }
         }

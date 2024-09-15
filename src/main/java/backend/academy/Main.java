@@ -20,8 +20,6 @@ public class Main {
     int indexWord;
     int category;
     int level;
-//    private final char SPACE = ' ';
-//    private final char UNDERLINE = ' ';
 
     public static void main(String[] args) {
         DrawingGallow drawingGallow = new DrawingGallow();
@@ -29,14 +27,10 @@ public class Main {
             category = Chosen.chooseCategory(scan, System.out, random);
             level = Chosen.chooseLevel(scan, System.out, random);
 
-            try {
-                mapWordAndHint = SrvInitialization.getInfo(category, level);
-            } catch (Exception e) {
-                return;
-            }
+            mapWordAndHint = SrvInitialization.getInfo(category, level, System.out);
 
             //Индекс для выбора слова из категории
-            indexWord = random.nextInt(mapWordAndHint.size()) + 0;
+            indexWord = random.nextInt(mapWordAndHint.size());
 
             //Выбранное слово
             String ourWord = (String) mapWordAndHint.keySet().toArray()[indexWord];
