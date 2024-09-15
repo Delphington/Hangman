@@ -7,12 +7,12 @@ package backend.academy;
 //);
 
 public enum Level {
-    LEVEL_1("Легкий"),
-    LEVEL_2("Средний"),
-    LEVEL_3("Сложный");
+    EASY("Легкий"),
+    NORMAL("Средний"),
+    HARD("Сложный");
 
     private String value;
-    private final static Level[] ARR = {LEVEL_1, LEVEL_2, LEVEL_3};
+    private final static Level[] ARR = {EASY, NORMAL, HARD};
 
     Level(String value) {
         this.value = value;
@@ -21,6 +21,5 @@ public enum Level {
     public String getValue() {
         return value;
     }
-
 
 }
