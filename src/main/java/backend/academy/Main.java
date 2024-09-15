@@ -14,7 +14,7 @@ public class Main {
     //Уровень 3: слова из букв 9-14
 
     Scanner scan = new Scanner(System.in, StandardCharsets.UTF_8);
-   // Random random = new Random();
+    // Random random = new Random();
     SecureRandom random = new SecureRandom();
     Map<String, String> mapWordAndHint;
     int indexWord;

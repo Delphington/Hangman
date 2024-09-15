@@ -2,7 +2,7 @@ package backend.academy;
 
 import java.io.PrintStream;
 
-public class DrawingGallow {
+public final class DrawingGallow implements Constants {
     private int countError = 0;
 
     public void setCountError(int countError) {
@@ -45,18 +45,18 @@ public class DrawingGallow {
                 if (i == 0) {
                     //Разрисовка висилица в зависимости от количества ошибок
                     switch (countError) {
-                        case Config.ERROR_CASE_1:
+                        case ERROR_CASE_1:
                             printStream.print(GallowEnum.STEP_1.getValue() + "\n");
                             printStream.print(GallowEnum.STEP_2.getValue());
                             break;
 
-                        case Config.ERROR_CASE_2:
+                        case ERROR_CASE_2:
                             printStream.print(GallowEnum.STEP_1.getValue() + "\n");
                             printStream.print(GallowEnum.STEP_2.getValue() + "\n");
                             printStream.print(GallowEnum.STEP_3.getValue());
                             break;
 
-                        case Config.ERROR_CASE_3:
+                        case ERROR_CASE_3:
                             printStream.print(GallowEnum.STEP_1.getValue() + "\n");
                             printStream.print(GallowEnum.STEP_2.getValue() + "\n");
                             printStream.print(GallowEnum.STEP_3.getValue());
@@ -64,7 +64,7 @@ public class DrawingGallow {
                             printStream.print(GallowEnum.STEP_HELP.getValue());
                             break;
 
-                        case Config.ERROR_CASE_4:
+                        case ERROR_CASE_4:
                             printStream.print(GallowEnum.STEP_1.getValue() + "\n");
                             printStream.print(GallowEnum.STEP_2.getValue() + "\n");
                             printStream.print(GallowEnum.STEP_5.getValue() + "\n");
@@ -72,7 +72,7 @@ public class DrawingGallow {
                             printStream.print(GallowEnum.STEP_HELP.getValue());
                             break;
 
-                        case Config.ERROR_CASE_5:
+                        case ERROR_CASE_5:
                             printStream.print(GallowEnum.STEP_1.getValue() + "\n");
                             printStream.print(GallowEnum.STEP_2.getValue() + "\n");
                             printStream.print(GallowEnum.STEP_5.getValue() + "\n");
@@ -81,7 +81,7 @@ public class DrawingGallow {
                             printStream.print(GallowEnum.STEP_HELP.getValue());
                             break;
 
-                        case Config.ERROR_CASE_6:
+                        case ERROR_CASE_6:
                             printStream.print(GallowEnum.STEP_1.getValue() + "\n");
                             printStream.print(GallowEnum.STEP_2.getValue() + "\n");
                             printStream.print(GallowEnum.STEP_5.getValue() + "\n");

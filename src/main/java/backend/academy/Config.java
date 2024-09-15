@@ -7,14 +7,6 @@ public final class Config {
 
     public static final int TOTAL_ATTEMPTS = 6;
 
-    //Константы для количества ошибок
-    public static final int ERROR_CASE_1 = 1;
-    public static final int ERROR_CASE_2 = 2;
-    public static final int ERROR_CASE_3 = 3;
-    public static final int ERROR_CASE_4 = 4;
-    public static final int ERROR_CASE_5 = 5;
-    public static final int ERROR_CASE_6 = 6;
-
     //Для выбора категорий: Природа, страны, животные и тд
     public static final int RANDOM_CATEGORY_MIN = 1;
     public static final int RANDOM_CATEGORY_MAX = 4;

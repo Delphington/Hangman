@@ -9,7 +9,7 @@ import java.nio.charset.StandardCharsets;
 import java.util.HashMap;
 import java.util.Map;
 
-public class SrvInitialization {
+public final class SrvInitialization {
 
     private SrvInitialization() {
     }

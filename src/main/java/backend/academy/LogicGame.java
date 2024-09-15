@@ -4,7 +4,7 @@ import java.io.PrintStream;
 import java.util.ArrayList;
 import java.util.Scanner;
 
-public class LogicGame {
+public final class LogicGame {
     private LogicGame() {
     }
 
