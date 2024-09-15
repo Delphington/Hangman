@@ -35,17 +35,15 @@ public class StartGame {
 
             //Строка, которая будет менятся и которую будем угадывать
             StringBuilder foreignStr = new StringBuilder();
-            for (int i = 0; i < ourWord.length(); i++) {
-                foreignStr.append("_");
-                foreignStr.append(" ");
-            }
 
             //Копия нашей, строки. Нужно чтобы было удобно сравнивать с foreignStr
             StringBuilder cloneForeignStr = new StringBuilder();
             for (int i = 0; i < ourWord.length(); i++) {
-                cloneForeignStr.append(ourWord.charAt(i));
-                cloneForeignStr.append(" ");
+                foreignStr.append("_").append(" "); //будет выглядеть: _ _  _ _
+                cloneForeignStr.append(ourWord.charAt(i)).append(" ");  //будет выглядеть: а б в г
             }
+
+
             LogicGame.play(drawingGallow, ourWord, foreignStr, cloneForeignStr, System.out, scan);
             drawingGallow.setCountError(0);
 
