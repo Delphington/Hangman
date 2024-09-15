@@ -2,7 +2,8 @@ package backend.academy;
 
 import java.io.PrintStream;
 
-public final class DrawingGallow   {
+public final class DrawingGallow {
+
     private int countError = 0;
 
     public void setCountError(int countError) {

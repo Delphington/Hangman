@@ -43,10 +43,8 @@ public final class SrvInitialization {
             }
         } catch (FileNotFoundException e) {
             printStream.println(e.getMessage());
-            //throw new RuntimeException("File not found: " + e.getMessage(), e);
         } catch (IOException e) {
             printStream.println(e.getMessage());
-            //throw new RuntimeException("IO error: " + e.getMessage(), e);
         }
 
         return new HashMap<>(wordAndHint);
