@@ -44,7 +44,8 @@ public class StartGame {
             }
 
             LogicGame.play(drawingGallow, ourWord, foreignStr, cloneForeignStr, System.out, scan);
-            drawingGallow.setCountError(0);
+         //   drawingGallow.setCountError(0);
+            LogicGame.setCountError(0);
 
             if (!Chosen.chooseAction(System.out, scan)) {
                 break;

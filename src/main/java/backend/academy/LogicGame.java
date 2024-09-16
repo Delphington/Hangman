@@ -1,5 +1,6 @@
 package backend.academy;
 
+import lombok.Getter;
 import java.io.PrintStream;
 import java.util.ArrayList;
 import java.util.Scanner;
@@ -7,6 +8,17 @@ import java.util.Scanner;
 public final class LogicGame {
     private LogicGame() {
     }
+
+    @Getter private static int countError = 0;
+
+    public static void setCountError(int c) {
+        countError = c;
+    }
+
+    public int getCountError() {
+        return countError;
+    }
+
 
     public static void play(
         DrawingGallow drawingGallow, String ourWord, StringBuilder foreignStr,
@@ -18,14 +30,14 @@ public final class LogicGame {
 
         ArrayList<String> usedLetters = new ArrayList<>(); //Массив для использованных букв
 
-        printStream.println(Config.REMAINING_ATTEMPTS + (Config.TOTAL_ATTEMPTS - drawingGallow.getCountError()));
+        printStream.println(Config.REMAINING_ATTEMPTS + (Config.TOTAL_ATTEMPTS - countError));
 
         printStream.println(foreignStr); //Вывод маски
         while (true) {
 
             //Проверка корректности ввода символа
             while (true) {
-                if (drawingGallow.getCountError() > 0 && !isUsedHint) {
+                if (countError > 0 && !isUsedHint) {
                     printStream.print("Если нужна подсказка введите [hint] или ");
                 }
                 printStream.println("Введите букву для загаданного слова: ");
@@ -52,17 +64,19 @@ public final class LogicGame {
 
             //Пользователь ввел буквы, которой нет в слове
             if (ourWord.indexOf(String.valueOf(symbol)) == -1) {
-                drawingGallow.increment();
-                drawingGallow.printGallows(System.out);
+
+                countError ++;
+                drawingGallow.printGallows(System.out, countError);
 
                 //Вывод оставшихся попыток
                 printStream.println(
-                    Config.REMAINING_ATTEMPTS + (Config.TOTAL_ATTEMPTS - drawingGallow.getCountError()));
+                    Config.REMAINING_ATTEMPTS + (Config.TOTAL_ATTEMPTS - countError));
 
-                if (drawingGallow.getCountError() == Config.TOTAL_ATTEMPTS) {
+                if (countError == Config.TOTAL_ATTEMPTS) {
                     printStream.println("----------------WE LOSED -----------------");
                     printStream.println("# Загаданное слово: " + ourWord);
-                    drawingGallow.setCountError(0);
+
+                    countError = 0;
                     isUsedHint = false;
                     break;
                 }
@@ -82,7 +96,7 @@ public final class LogicGame {
 
             if (foreignStr.indexOf("_") == -1) {
                 printStream.println("Вы отгадали слово! ");
-                drawingGallow.setCountError(0);
+                countError = 0;
                 isUsedHint = false;
                 break;
             }

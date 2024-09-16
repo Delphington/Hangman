@@ -7,19 +7,8 @@ import lombok.Getter;
 @SuppressWarnings("all")
 public final class DrawingGallow {
 
-    @Getter private int countError = 0;
+  //  private  DrawingGallow(){}
 
-    public void setCountError(int countError) {
-        this.countError = countError;
-    }
-
-    public int getCountError() {
-        return countError;
-    }
-
-    public void increment() {
-        countError++;
-    }
 
     private static final String[] HANGMAN_STAGES = {
         "_________________\n"
@@ -90,7 +79,7 @@ public final class DrawingGallow {
 
     };
 
-    public void printGallows(PrintStream printStream) {
+    public static void printGallows(PrintStream printStream, int countError) {
         printStream.println(HANGMAN_STAGES[countError - 1]);
     }
 }
