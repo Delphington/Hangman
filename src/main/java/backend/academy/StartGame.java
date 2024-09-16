@@ -19,39 +19,33 @@ public class StartGame {
     static int level;
 
     public static void startGame() {
-        while (true) {
+        do {
             category = Chosen.chooseCategory(scan, System.out, random);
             level = Chosen.chooseLevel(scan, System.out, random);
 
             mapWordAndHint = SrvInitialization.getInfo(category, level, System.out);
 
-            //Индекс для выбора слова из категории
+            // Индекс для выбора слова из категории
             indexWord = random.nextInt(mapWordAndHint.size());
 
-            //Выбранное слово
+            // Выбранное слово
             String ourWord = (String) mapWordAndHint.keySet().toArray()[indexWord];
 
-            //Строка, которая будет менятся и которую будем угадывать
+            // Строка, которая будет меняться и которую будем угадывать
             StringBuilder foreignStr = new StringBuilder();
 
-            //Копия нашей, строки. Нужно чтобы было удобно сравнивать с foreignStr
+            // Копия нашей строки. Нужно, чтобы было удобно сравнивать с foreignStr
             StringBuilder cloneForeignStr = new StringBuilder();
             for (int i = 0; i < ourWord.length(); i++) {
-                foreignStr.append("_").append(" "); //будет выглядеть: _ _  _ _
-                cloneForeignStr.append(ourWord.charAt(i)).append(" ");  //будет выглядеть: а б в г
+                foreignStr.append("_").append(" "); // будет выглядеть: _ _  _ _
+                cloneForeignStr.append(ourWord.charAt(i)).append(" ");  // будет выглядеть: а б в г
             }
 
             LogicGame.play(ourWord, foreignStr, cloneForeignStr, System.out, scan);
 
-//------------------------
             LogicGame.setCountError(0);
 
-            //LogicGame.
-//------------------------
-            if (!Chosen.chooseAction(System.out, scan)) {
-                break;
-            }
-        }
+        } while (Chosen.chooseAction(System.out, scan));
         scan.close();
 
     }
