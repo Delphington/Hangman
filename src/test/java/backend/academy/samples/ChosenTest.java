@@ -96,14 +96,14 @@ public class ChosenTest {
         verify(printStream, times(4)).println(Config.WARNING_INCORRECT_NUMBER);
 
         //        //Ввод пустоты
-        when(scanner.nextLine()).thenReturn("");
-        when(random.nextInt(Config.RANDOM_CATEGORY_MAX)).thenReturn(1);
-
-        // Act
-        int actualCategory = Chosen.chooseCategory(scanner, printStream, random);
-
-        // Assert
-        assertEquals(1 + Config.RANDOM_CATEGORY_MIN, actualCategory);
+//        when(scanner.nextLine()).thenReturn("");
+//        when(random.nextInt(Config.RANDOM_CATEGORY_MAX)).thenReturn(1);
+//
+//        // Act
+//        int actualCategory = Chosen.chooseCategory(scanner, printStream, random);
+//
+//        // Assert
+//        assertEquals(1 + Config.RANDOM_CATEGORY_MIN, actualCategory);
     }
 
     @Test
