@@ -18,8 +18,6 @@ public class StartGame {
     static int category;
     static int level;
 
-    static DrawingGallow drawingGallow = new DrawingGallow();
-
     public static void startGame() {
         while (true) {
             category = Chosen.chooseCategory(scan, System.out, random);
@@ -43,8 +41,7 @@ public class StartGame {
                 cloneForeignStr.append(ourWord.charAt(i)).append(" ");  //будет выглядеть: а б в г
             }
 
-            LogicGame.play(drawingGallow, ourWord, foreignStr, cloneForeignStr, System.out, scan);
-         //   drawingGallow.setCountError(0);
+            LogicGame.play(ourWord, foreignStr, cloneForeignStr, System.out, scan);
             LogicGame.setCountError(0);
 
             if (!Chosen.chooseAction(System.out, scan)) {

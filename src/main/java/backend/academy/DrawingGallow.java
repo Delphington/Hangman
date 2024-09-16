@@ -7,8 +7,8 @@ import lombok.Getter;
 @SuppressWarnings("all")
 public final class DrawingGallow {
 
-  //  private  DrawingGallow(){}
-
+    private DrawingGallow() {
+    }
 
     private static final String[] HANGMAN_STAGES = {
         "_________________\n"

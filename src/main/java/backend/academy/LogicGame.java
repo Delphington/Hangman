@@ -1,27 +1,21 @@
 package backend.academy;
 
-import lombok.Getter;
 import java.io.PrintStream;
 import java.util.ArrayList;
 import java.util.Scanner;
+import lombok.Getter;
 
 public final class LogicGame {
     private LogicGame() {
     }
 
-    @Getter private static int countError = 0;
+    @Getter private static int countError = 0; //Счетчик ошибок
 
     public static void setCountError(int c) {
         countError = c;
     }
 
-    public int getCountError() {
-        return countError;
-    }
-
-
-    public static void play(
-        DrawingGallow drawingGallow, String ourWord, StringBuilder foreignStr,
+    public static void play(String ourWord, StringBuilder foreignStr,
         StringBuilder cloneForeignStr, PrintStream printStream, Scanner scan
     ) {
 
@@ -64,9 +58,8 @@ public final class LogicGame {
 
             //Пользователь ввел буквы, которой нет в слове
             if (ourWord.indexOf(String.valueOf(symbol)) == -1) {
-
-                countError ++;
-                drawingGallow.printGallows(System.out, countError);
+                countError++;
+                DrawingGallow.printGallows(System.out, countError);
 
                 //Вывод оставшихся попыток
                 printStream.println(
