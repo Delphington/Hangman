@@ -1,9 +1,8 @@
 package backend.academy;
 
 import java.io.PrintStream;
-import lombok.Getter;
 
-@Getter
+
 @SuppressWarnings("all")
 public final class DrawingGallow {
 

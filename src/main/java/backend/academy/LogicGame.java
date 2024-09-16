@@ -3,19 +3,18 @@ package backend.academy;
 import java.io.PrintStream;
 import java.util.ArrayList;
 import java.util.Scanner;
-import lombok.Getter;
+import lombok.Setter;
+
 
 public final class LogicGame {
     private LogicGame() {
     }
 
-    @Getter private static int countError = 0; //Счетчик ошибок
+    @Setter
+    private static int countError = 0; //Счетчик ошибок
 
-    public static void setCountError(int c) {
-        countError = c;
-    }
-
-    public static void play(String ourWord, StringBuilder foreignStr,
+    public static void play(
+        String ourWord, StringBuilder foreignStr,
         StringBuilder cloneForeignStr, PrintStream printStream, Scanner scan
     ) {
 

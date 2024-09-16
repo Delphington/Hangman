@@ -9,17 +9,16 @@ import java.io.PrintStream;
 import java.nio.charset.StandardCharsets;
 import java.util.HashMap;
 import java.util.Map;
+import lombok.Getter;
 
 public final class SrvInitialization {
 
     private SrvInitialization() {
     }
 
+    @Getter
     private static Map<String, String> wordAndHint;
 
-    public static Map<String, String> getWordAndHint() {
-        return new HashMap<>(wordAndHint);
-    }
 
     public static Map<String, String> getInfo(int category, int level, PrintStream printStream) {
 
@@ -47,6 +46,6 @@ public final class SrvInitialization {
             printStream.println(e.getMessage());
         }
 
-        return new HashMap<>(wordAndHint);
+        return wordAndHint;
     }
 }

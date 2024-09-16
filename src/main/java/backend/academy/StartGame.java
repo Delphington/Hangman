@@ -42,8 +42,12 @@ public class StartGame {
             }
 
             LogicGame.play(ourWord, foreignStr, cloneForeignStr, System.out, scan);
+
+//------------------------
             LogicGame.setCountError(0);
 
+            //LogicGame.
+//------------------------
             if (!Chosen.chooseAction(System.out, scan)) {
                 break;
             }
