@@ -4,6 +4,7 @@ import java.io.PrintStream;
 import lombok.Getter;
 
 @Getter
+@SuppressWarnings("all")
 public final class DrawingGallow {
 
     @Getter private int countError = 0;
@@ -20,7 +21,7 @@ public final class DrawingGallow {
         countError++;
     }
 
-    private static final String ERROR_1 =
+    private static final String[] HANGMAN_STAGES = {
         "_________________\n"
             + "|  || //        | \n"
             + "   ||//         0 \n"
@@ -30,9 +31,8 @@ public final class DrawingGallow {
             + "   ||\n"
             + "   ||\n"
             + "=========|__ \n"
-            + "            |__\n";
+            + "            |__\n",
 
-    private static final String ERROR_2 =
         "_________________\n"
             + "|  || //        | \n"
             + "   ||//         0 \n"
@@ -42,9 +42,8 @@ public final class DrawingGallow {
             + "   ||\n"
             + "   ||\n"
             + "=========|__  \n"
-            + "            |__ \n";
+            + "            |__ \n",
 
-    private static final String ERROR_3 =
         "_________________\n"
             + "|  || //        | \n"
             + "   ||//         0 \n"
@@ -54,9 +53,8 @@ public final class DrawingGallow {
             + "   ||\n"
             + "   ||\n"
             + "=========|__ \n"
-            + "            |__\n";
+            + "            |__\n",
 
-    private static final String ERROR_4 =
         "_________________\n"
             + "|  || //        | \n"
             + "   ||//         0 \n"
@@ -66,9 +64,8 @@ public final class DrawingGallow {
             + "   ||\n"
             + "   ||\n"
             + "=========|__ \n"
-            + "            |__\n";
+            + "            |__\n",
 
-    private static final String ERROR_5 =
         "_________________\n"
             + "|  || //        | \n"
             + "   ||//         0 \n"
@@ -78,9 +75,8 @@ public final class DrawingGallow {
             + "   ||\n"
             + "   ||\n"
             + "=========|__ \n"
-            + "            |__\n";
+            + "            |__\n",
 
-    private static final String ERROR_6 =
         "_________________\n"
             + "|  || //        | \n"
             + "   ||//         0 \n"
@@ -90,9 +86,9 @@ public final class DrawingGallow {
             + "   ||\n"
             + "   ||\n"
             + "=========|__ \n"
-            + "            |__\n";
+            + "            |__\n"
 
-    private static final String[] HANGMAN_STAGES = {ERROR_1, ERROR_2, ERROR_3, ERROR_4, ERROR_5, ERROR_6};
+    };
 
     public void printGallows(PrintStream printStream) {
         printStream.println(HANGMAN_STAGES[countError - 1]);

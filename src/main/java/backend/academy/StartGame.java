@@ -43,7 +43,6 @@ public class StartGame {
                 cloneForeignStr.append(ourWord.charAt(i)).append(" ");  //будет выглядеть: а б в г
             }
 
-
             LogicGame.play(drawingGallow, ourWord, foreignStr, cloneForeignStr, System.out, scan);
             drawingGallow.setCountError(0);
 
