@@ -4,7 +4,6 @@ import java.io.PrintStream;
 import java.util.ArrayList;
 import java.util.Scanner;
 
-
 public final class LogicGame {
     private LogicGame() {
     }
@@ -30,7 +29,8 @@ public final class LogicGame {
                     printStream.print("Если нужна подсказка введите [hint] или ");
                 }
                 printStream.println("Введите букву для загаданного слова: ");
-                String temp = scan.nextLine().trim().toLowerCase();
+
+                String temp = CheckData.checkString(scan.nextLine());
 
                 //Вывод подсказки(Подсказка предлагается, когда пользователь совершил ошибку)
                 if (temp.equals("hint")) {
