@@ -2,6 +2,7 @@ package backend.academy;
 
 import java.io.PrintStream;
 
+
 @SuppressWarnings("all")
 public final class DrawingGallow {
 
@@ -88,4 +89,3 @@ public final class DrawingGallow {
         printStream.println(HANGMAN_BASE); // Нижняя
     }
 }
-
