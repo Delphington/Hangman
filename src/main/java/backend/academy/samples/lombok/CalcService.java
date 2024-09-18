@@ -34,6 +34,6 @@ public class CalcService {
         var service = new CalcService("1.0");
         service.calculateDoubleValue();
 
-        log.info(service.doubleValue());
+        log.info(service.doubleValue);
     }
 }

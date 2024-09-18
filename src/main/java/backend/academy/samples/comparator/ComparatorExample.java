@@ -19,24 +19,24 @@ public class ComparatorExample {
         log.info("Employees : {}", employees);
 
         // Sort employees by Name
-        employees.sort(Comparator.comparing(Employee::name));
+        employees.sort(Comparator.comparing(Employee::getName));
         log.info("Employees (Sorted by Name) : {}", employees);
 
         // Sort employees by Salary
-        employees.sort(Comparator.comparingDouble(Employee::salary));
+        employees.sort(Comparator.comparingDouble(Employee::getSalary));
         log.info("Employees (Sorted by Salary) : {}", employees);
 
         // Sort employees by JoiningDate
-        employees.sort(Comparator.comparing(Employee::joiningDate));
+        employees.sort(Comparator.comparing(Employee::getJoiningDate));
         log.info("Employees (Sorted by JoiningDate) : {}", employees);
 
         // Sort employees by Name in descending order
-        employees.sort(Comparator.comparing(Employee::name).reversed());
+        employees.sort(Comparator.comparing(Employee::getName).reversed());
         log.info("Employees (Sorted by Name in descending order) : {}", employees);
 
         // Chaining multiple Comparators
         // Sort by Salary. If Salary is same then sort by Name
-        employees.sort(Comparator.<Employee>comparingDouble(Employee::salary).thenComparing(Employee::name));
+        employees.sort(Comparator.<Employee>comparingDouble(Employee::getSalary).thenComparing(Employee::getName));
         log.info("Employees (Sorted by Salary and Name) : {}", employees);
     }
 }
