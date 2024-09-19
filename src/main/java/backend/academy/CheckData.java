@@ -1,5 +1,7 @@
 package backend.academy;
 
+import java.util.NoSuchElementException;
+
 public final class CheckData {
     private CheckData() {
     }
@@ -9,6 +11,9 @@ public final class CheckData {
     }
 
     public static String checkString(String s) {
+        if (s == null) {
+            throw new NoSuchElementException("String is NULL");
+        }
         return s.trim().toLowerCase();
     }
 }

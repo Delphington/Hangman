@@ -2,9 +2,9 @@ package backend.academy;
 
 import java.io.PrintStream;
 import java.util.ArrayList;
+import java.util.NoSuchElementException;
 import java.util.Scanner;
 import lombok.Setter;
-
 
 public final class LogicGame {
     private LogicGame() {
@@ -30,12 +30,17 @@ public final class LogicGame {
 
             //Проверка корректности ввода символа
             while (true) {
+                String temp = null;
                 if (countError > 0 && !isUsedHint) {
                     printStream.print("Если нужна подсказка введите [hint] или ");
                 }
                 printStream.println("Введите букву для загаданного слова: ");
 
-                String temp = CheckData.checkString(scan.nextLine());
+                try {
+                    temp = CheckData.checkString(scan.nextLine());
+                } catch (NoSuchElementException e) {
+                    printStream.println("Error: string is null");
+                }
 
                 //Вывод подсказки(Подсказка предлагается, когда пользователь совершил ошибку)
                 if (temp.equals("hint")) {
