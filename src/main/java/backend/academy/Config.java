@@ -22,6 +22,6 @@ public final class Config {
     public static final String REMAINING_ATTEMPTS = "Количество ваших попыток: ";
 
     //Путь файла
-    public static final String FILE_PATH_OF_WORD = "src/main/resources/WordDictionary.txt";
+    public static String filePathOfWord = "src/main/resources/WordDictionary.txt";
 
 }

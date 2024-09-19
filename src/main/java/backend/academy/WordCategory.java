@@ -14,5 +14,4 @@ public enum WordCategory {
     WordCategory(String description) {
         this.description = description;
     }
-
 }

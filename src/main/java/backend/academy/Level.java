@@ -14,5 +14,4 @@ public enum Level {
     Level(String value) {
         this.value = value;
     }
-
 }

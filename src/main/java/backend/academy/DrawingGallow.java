@@ -2,7 +2,6 @@ package backend.academy;
 
 import java.io.PrintStream;
 
-
 @SuppressWarnings("all")
 public final class DrawingGallow {
 

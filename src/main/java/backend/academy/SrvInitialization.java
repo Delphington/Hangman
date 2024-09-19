@@ -9,6 +9,7 @@ import java.io.PrintStream;
 import java.nio.charset.StandardCharsets;
 import java.util.HashMap;
 import java.util.Map;
+
 import lombok.Getter;
 
 public final class SrvInitialization {
@@ -22,7 +23,7 @@ public final class SrvInitialization {
 
     public static Map<String, String> getInfo(int category, int level, PrintStream printStream) {
 
-        String filePath = Config.FILE_PATH_OF_WORD;
+        String filePath = Config.filePathOfWord;
 
         try (BufferedReader br = new BufferedReader(
             new InputStreamReader(new FileInputStream(filePath), StandardCharsets.UTF_8))) {

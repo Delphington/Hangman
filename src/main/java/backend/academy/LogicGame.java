@@ -13,6 +13,7 @@ public final class LogicGame {
     @Setter
     private static int countError = 0; //Счетчик ошибок
 
+    @SuppressWarnings("all")
     public static void play(
         String ourWord, StringBuilder foreignStr,
         StringBuilder cloneForeignStr, PrintStream printStream, Scanner scan
@@ -43,11 +44,11 @@ public final class LogicGame {
                 }
 
                 //Вывод подсказки(Подсказка предлагается, когда пользователь совершил ошибку)
-                if (temp.equals("hint")) {
+                if (temp != null && temp.equals("hint") && countError > 0) {
                     printStream.println("Подсказка: " + SrvInitialization.getWordAndHint().get(ourWord));
                     isUsedHint = true;
 
-                } else if (CheckData.checkChar(temp)) {  //проверка на норм символы
+                } else if (temp != null && CheckData.checkChar(temp)) {  //проверка на норм символы
                     symbol = temp.charAt(0);
                     if (usedLetters.contains(Character.toString(symbol))) {
                         printStream.println("Внимание! Вы уже вводили эту букву, попробуйте еще раз!");
