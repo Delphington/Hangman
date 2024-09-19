@@ -15,13 +15,6 @@ public final class Config {
     public static final int RANDOM_LEVEL_MIN = 1;
     public static final int RANDOM_LEVEL_MAX = 3;
 
-    //Варнинги-строки
-    public static final String WARNING_INCORRECT_NUMBER = "Ошибка! Введите цифру: ";
-    public static final String MESSAGE_INPUT_LETTER = "Введите букву: ";
-
-    public static final String REMAINING_ATTEMPTS = "Количество ваших попыток: ";
-
     //Путь файла
     public static String filePathOfWord = "src/main/resources/WordDictionary.txt";
-
 }

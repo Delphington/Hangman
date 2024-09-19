@@ -4,7 +4,7 @@ import java.io.PrintStream;
 import java.security.SecureRandom;
 import java.util.Scanner;
 
-public final class Chosen {
+public final class Chosen implements StringConst {
     private Chosen() {
     }
 
@@ -15,7 +15,7 @@ public final class Chosen {
 
     public static int chooseCategory(Scanner scan, PrintStream printStream, SecureRandom random) {
 
-        printStream.println("Выберите номер категории слов: ");
+        printStream.println(MESSAGE_CHOOSE_CATEGORY);
         for (WordCategory wordCategory : WordCategory.values()) {
             printStream.println("[" + (wordCategory.ordinal() + 1) + "] " + wordCategory.getDescription());
         }
@@ -32,9 +32,9 @@ public final class Chosen {
                     if (category >= Config.RANDOM_CATEGORY_MIN && category <= Config.RANDOM_CATEGORY_MAX) {
                         return category;
                     }
-                    printStream.println(Config.WARNING_INCORRECT_NUMBER);
+                    printStream.println(WARNING_INCORRECT_NUMBER);
                 } catch (Exception e) {
-                    printStream.println(Config.WARNING_INCORRECT_NUMBER);
+                    printStream.println(WARNING_INCORRECT_NUMBER);
 
                 }
 
@@ -45,7 +45,7 @@ public final class Chosen {
 
     public static int chooseLevel(Scanner scan, PrintStream printStream, SecureRandom random) {
 
-        printStream.println("Выберите уровень сложности: ");
+        printStream.println(MESSAGE_CHOOSE_LEVEL);
         for (Level v : Level.values()) {
             printStream.println("[" + (v.ordinal() + 1) + "] " + v.getValue());
         }
@@ -62,10 +62,10 @@ public final class Chosen {
                     if (level >= Config.RANDOM_LEVEL_MIN && level <= Config.RANDOM_LEVEL_MAX) {
                         return level;
                     }
-                    printStream.println(Config.WARNING_INCORRECT_NUMBER);
+                    printStream.println(WARNING_INCORRECT_NUMBER);
 
                 } catch (Exception e) {
-                    printStream.println(Config.WARNING_INCORRECT_NUMBER);
+                    printStream.println(WARNING_INCORRECT_NUMBER);
 
                 }
             }
@@ -73,11 +73,11 @@ public final class Chosen {
     }
 
     public static boolean chooseAction(PrintStream printStream, Scanner scan) {
-        printStream.println("[С]ontinue OR [E]xit");
+        printStream.println(MESSAGE_CONTINUE_EXIT);
         while (true) {
             line = scan.nextLine().trim();
             if (line.isEmpty()) {
-                printStream.println(Config.MESSAGE_INPUT_LETTER);
+                printStream.println(MESSAGE_INPUT_LETTER);
             } else {
                 if (CheckData.checkChar(line)
                     && line.equalsIgnoreCase("C")
@@ -86,10 +86,10 @@ public final class Chosen {
                 } else if (CheckData.checkChar(line)
                     && line.equalsIgnoreCase("E")
                     || line.equalsIgnoreCase("Е")) {
-                    printStream.println("Игра завершена!");
+                    printStream.println(MESSAGE_GAVE_OVER);
                     return false;
                 } else {
-                    printStream.println(Config.MESSAGE_INPUT_LETTER);
+                    printStream.println(MESSAGE_INPUT_LETTER);
                 }
             }
         }

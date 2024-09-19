@@ -9,7 +9,6 @@ import java.io.PrintStream;
 import java.nio.charset.StandardCharsets;
 import java.util.HashMap;
 import java.util.Map;
-
 import lombok.Getter;
 
 public final class SrvInitialization {
@@ -20,6 +19,14 @@ public final class SrvInitialization {
     @Getter
     private static Map<String, String> wordAndHint;
 
+    /**
+     * Получает информацию о словах и подсказках для заданной категории и уровня.
+     *
+     * @param category   категория слов
+     * @param level      уровень сложности слов
+     * @param printStream поток для вывода сообщений об ошибках
+     * @return map, содержащая слова и соответствующие им подсказки
+     */
 
     public static Map<String, String> getInfo(int category, int level, PrintStream printStream) {
 

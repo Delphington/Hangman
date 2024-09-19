@@ -6,12 +6,23 @@ import java.util.NoSuchElementException;
 import java.util.Scanner;
 import lombok.Setter;
 
-public final class LogicGame {
+public final class LogicGame implements StringConst {
     private LogicGame() {
     }
 
     @Setter
     private static int countError = 0; //Счетчик ошибок
+
+    /**
+     * Метод для запуска игры.
+     *
+     * @param ourWord           Загаданное слово. (игра)
+     * @param foreignStr        Строка, отображающая текущее состояние слова
+     *                          с замененными буквами  и добавленными пробелами (_ _ _ _).
+     * @param cloneForeignStr   Клонированная строка для проверки угаданных букв (и г р а).
+     * @param printStream       Поток для вывода сообщений пользователю.
+     * @param scan              Объект Scanner для считывания ввода пользователя.
+     */
 
     @SuppressWarnings("all")
     public static void play(
@@ -24,7 +35,7 @@ public final class LogicGame {
 
         ArrayList<String> usedLetters = new ArrayList<>(); //Массив для использованных букв
 
-        printStream.println(Config.REMAINING_ATTEMPTS + (Config.TOTAL_ATTEMPTS - countError));
+        printStream.println(REMAINING_ATTEMPTS + (Config.TOTAL_ATTEMPTS - countError));
 
         printStream.println(foreignStr); //Вывод маски
         while (true) {
@@ -33,14 +44,14 @@ public final class LogicGame {
             while (true) {
                 String temp = null;
                 if (countError > 0 && !isUsedHint) {
-                    printStream.print("Если нужна подсказка введите [hint] или ");
+                    printStream.print(MESSAGE_HINT);
                 }
-                printStream.println("Введите букву для загаданного слова: ");
+                printStream.println(MESSAGE_ENTER_CHAR);
 
                 try {
                     temp = CheckData.checkString(scan.nextLine());
                 } catch (NoSuchElementException e) {
-                    printStream.println("Error: string is null");
+                    printStream.println(MESSAGE_STRING_NULL);
                 }
 
                 //Вывод подсказки(Подсказка предлагается, когда пользователь совершил ошибку)
@@ -51,13 +62,13 @@ public final class LogicGame {
                 } else if (temp != null && CheckData.checkChar(temp)) {  //проверка на норм символы
                     symbol = temp.charAt(0);
                     if (usedLetters.contains(Character.toString(symbol))) {
-                        printStream.println("Внимание! Вы уже вводили эту букву, попробуйте еще раз!");
+                        printStream.println(WARNING_SAME_CHAR);
                     } else {
                         usedLetters.add(Character.toString(symbol));
                         break;
                     }
                 } else {
-                    printStream.print("Ошибка! ");
+                    printStream.print(ERROR_MESSAGE);
                 }
             }
 
@@ -67,12 +78,11 @@ public final class LogicGame {
                 DrawingGallow.printGallows(System.out, countError);
 
                 //Вывод оставшихся попыток
-                printStream.println(
-                    Config.REMAINING_ATTEMPTS + (Config.TOTAL_ATTEMPTS - countError));
+                printStream.println(REMAINING_ATTEMPTS + (Config.TOTAL_ATTEMPTS - countError));
 
                 if (countError == Config.TOTAL_ATTEMPTS) {
-                    printStream.println("----------------WE LOSED -----------------");
-                    printStream.println("# Загаданное слово: " + ourWord);
+                    printStream.println(MESSAGE_LOSE);
+                    printStream.println(MESSAGE_HIDDEN_WORD + ourWord);
 
                     countError = 0;
                     isUsedHint = false;
@@ -93,7 +103,7 @@ public final class LogicGame {
             }
 
             if (foreignStr.indexOf("_") == -1) {
-                printStream.println("Вы отгадали слово! ");
+                printStream.println(MESSAGE_WIN);
                 countError = 0;
                 isUsedHint = false;
                 break;

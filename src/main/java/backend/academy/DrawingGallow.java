@@ -23,6 +23,9 @@ public final class DrawingGallow {
 
     private static final String HANGMAN_BASE = "=========|__ \n" + "            |__\n";
 
+    /**
+     * Массив, представляющий различные стадии игры и ошибок.
+     */
     private static final String[] HANGMAN_STAGES = {
         HANGMAN_STEP
             + HANGMAN_HEAD
@@ -82,6 +85,12 @@ public final class DrawingGallow {
             + HANGMAN_WALL
     };
 
+    /**
+     * Метод для печати виселицы на основе количества ошибок.
+     *
+     * @param printStream поток, в который будет произведен вывод виселицы.
+     * @param countError количество ошибок, определяющее состояние игыр.
+     */
     public static void printGallows(PrintStream printStream, int countError) {
         printStream.print(STEP_CEILING); //Верхняя часть висилицы
         printStream.print(HANGMAN_STAGES[countError - 1]);

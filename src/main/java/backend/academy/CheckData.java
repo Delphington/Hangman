@@ -2,7 +2,7 @@ package backend.academy;
 
 import java.util.NoSuchElementException;
 
-public final class CheckData {
+public final class CheckData implements StringConst {
     private CheckData() {
     }
 
@@ -12,7 +12,7 @@ public final class CheckData {
 
     public static String checkString(String s) {
         if (s == null) {
-            throw new NoSuchElementException("String is NULL");
+            throw new NoSuchElementException(MESSAGE_STRING_NULL);
         }
         return s.trim().toLowerCase();
     }

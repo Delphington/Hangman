@@ -18,6 +18,11 @@ public class StartGame {
     static int category;
     static int level;
 
+    /**
+     * Метод для начала игры.
+     * Запускает цикл выбора категории и уровня, выбирает слово и начинает игру.
+     */
+
     public static void startGame() {
         do {
             category = Chosen.chooseCategory(scan, System.out, random);
