@@ -9,15 +9,20 @@ import java.io.PrintStream;
 import java.nio.charset.StandardCharsets;
 import java.util.HashMap;
 import java.util.Map;
+import java.util.Random;
 import lombok.Getter;
 
-public final class SrvInitialization {
+@Getter
+public final class SrvWorkWord {
 
-    private SrvInitialization() {
+    private SrvWorkWord() {
     }
 
-    @Getter
     private static Map<String, String> wordAndHint;
+    @Getter
+    private static String word;
+    @Getter
+    private static String hint;
 
     /**
      * Получает информацию о словах и подсказках для заданной категории и уровня.
@@ -28,7 +33,7 @@ public final class SrvInitialization {
      * @return map, содержащая слова и соответствующие им подсказки
      */
 
-    public static Map<String, String> getInfo(int category, int level, PrintStream printStream) {
+    public static void initialization(int category, int level, PrintStream printStream, Random random) {
 
         String filePath = Config.filePathOfWord;
 
@@ -54,6 +59,11 @@ public final class SrvInitialization {
             printStream.println(e.getMessage());
         }
 
-        return wordAndHint;
+        // Индекс для выбора слова из категории
+        int indexWord = random.nextInt(wordAndHint.size());
+
+        // Выбранное слово и подсказка
+        word = (String) wordAndHint.keySet().toArray()[indexWord];
+        hint = (String) wordAndHint.values().toArray()[indexWord];
     }
 }

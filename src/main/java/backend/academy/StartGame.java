@@ -14,7 +14,6 @@ public class StartGame {
     static Scanner scan = new Scanner(System.in, StandardCharsets.UTF_8);
     static SecureRandom random = new SecureRandom();
     static Map<String, String> mapWordAndHint;
-    static int indexWord;
     static int category;
     static int level;
 
@@ -28,13 +27,10 @@ public class StartGame {
             category = Chosen.chooseCategory(scan, System.out, random);
             level = Chosen.chooseLevel(scan, System.out, random);
 
-            mapWordAndHint = SrvInitialization.getInfo(category, level, System.out);
-
-            // Индекс для выбора слова из категории
-            indexWord = random.nextInt(mapWordAndHint.size());
+            SrvWorkWord.initialization(category, level, System.out, random);
 
             // Выбранное слово
-            String ourWord = (String) mapWordAndHint.keySet().toArray()[indexWord];
+            String ourWord = SrvWorkWord.getWord();
 
             // Строка, которая будет меняться и которую будем угадывать
             StringBuilder foreignStr = new StringBuilder();

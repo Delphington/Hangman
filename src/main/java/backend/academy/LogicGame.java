@@ -27,8 +27,7 @@ public final class LogicGame implements StringConst {
     @SuppressWarnings("all")
     public static void play(
         String ourWord, StringBuilder foreignStr,
-        StringBuilder cloneForeignStr, PrintStream printStream, Scanner scan
-    ) {
+        StringBuilder cloneForeignStr, PrintStream printStream, Scanner scan) {
 
         char symbol;
         boolean isUsedHint = false;
@@ -56,7 +55,7 @@ public final class LogicGame implements StringConst {
 
                 //Вывод подсказки(Подсказка предлагается, когда пользователь совершил ошибку)
                 if (temp != null && temp.equals("hint") && countError > 0) {
-                    printStream.println("Подсказка: " + SrvInitialization.getWordAndHint().get(ourWord));
+                    printStream.println("Подсказка: " + SrvWorkWord.getHint());
                     isUsedHint = true;
 
                 } else if (temp != null && CheckData.checkChar(temp)) {  //проверка на норм символы
