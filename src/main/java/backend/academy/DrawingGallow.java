@@ -2,7 +2,7 @@ package backend.academy;
 
 import java.io.PrintStream;
 
-@SuppressWarnings("all")
+@SuppressWarnings("MultipleStringLiterals")
 public final class DrawingGallow {
 
     private DrawingGallow() {
@@ -18,9 +18,6 @@ public final class DrawingGallow {
     private static final String HANGMAN_BODY = "|";
 
     private static final String HANGMAN_RIGHT_ARM_LEG = "\\\n";
-    private static final String HANGMAN_LEFT_LEG = "   ||\n";
-    private static final String HANGMAN_RIGHT_LEG = "   ||\n";
-
     private static final String HANGMAN_BASE = "=========|__ \n" + "            |__\n";
 
     /**
@@ -41,8 +38,7 @@ public final class DrawingGallow {
             + HANGMAN_WALL
             + HANGMAN_WALL
             + HANGMAN_WALL
-            + HANGMAN_WALL
-        ,
+            + HANGMAN_WALL,
 
         HANGMAN_STEP
             + HANGMAN_HEAD

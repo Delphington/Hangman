@@ -11,5 +11,5 @@ public enum Level implements StringConst {
     NORMAL(LEVEL_NORMAL),
     HARD(LEVEL_HARD);
 
-    private String value;
+    private final String value;
 }
