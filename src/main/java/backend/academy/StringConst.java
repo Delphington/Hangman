@@ -20,8 +20,8 @@ public interface StringConst {
     String MESSAGE_HINT = "Если нужна подсказка введите [hint] или ";
     String MESSAGE_ENTER_CHAR = "Введите букву для загаданного слова: ";
 
-    String MESSAGE_LOSE = "----------------WE LOSED -----------------";
-    String MESSAGE_WIN = "Вы отгадали слово! ";
+    String MESSAGE_LOSE = "----------------Вы проиграли (о_0) -----------------";
+    String MESSAGE_WIN = "----------------Вы выиграли (^_^) ----------------- ";
 
     String MESSAGE_HIDDEN_WORD = "# Загаданное слово: ";
     String ERROR_MESSAGE = "Ошибка! ";
