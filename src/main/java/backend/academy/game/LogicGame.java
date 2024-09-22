@@ -1,5 +1,9 @@
-package backend.academy;
+package backend.academy.game;
 
+import backend.academy.SrvWorkWord;
+import backend.academy.data.CheckData;
+import backend.academy.info.Config;
+import backend.academy.info.StringConst;
 import java.io.PrintStream;
 import java.util.ArrayList;
 import java.util.NoSuchElementException;
@@ -48,7 +52,7 @@ public final class LogicGame implements StringConst {
                 printStream.println(MESSAGE_ENTER_CHAR);
 
                 try {
-                    temp = CheckData.checkString(scan.nextLine());
+                    temp = CheckData.correctToString(scan.nextLine());
                 } catch (NoSuchElementException e) {
                     printStream.println(MESSAGE_STRING_NULL);
                 }

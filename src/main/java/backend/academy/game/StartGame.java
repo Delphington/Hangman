@@ -1,5 +1,6 @@
-package backend.academy;
+package backend.academy.game;
 
+import backend.academy.SrvWorkWord;
 import java.nio.charset.StandardCharsets;
 import java.security.SecureRandom;
 import java.util.Map;

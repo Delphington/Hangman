@@ -1,5 +1,6 @@
-package backend.academy;
+package backend.academy.data;
 
+import backend.academy.info.StringConst;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 

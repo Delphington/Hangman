@@ -1,5 +1,6 @@
-package backend.academy;
+package backend.academy.data;
 
+import backend.academy.info.StringConst;
 import java.util.NoSuchElementException;
 
 public final class CheckData implements StringConst {
@@ -10,7 +11,7 @@ public final class CheckData implements StringConst {
         return s.length() == 1 && Character.isLetter(s.charAt(0));
     }
 
-    public static String checkString(String s) {
+    public static String correctToString(String s) {
         if (s == null) {
             throw new NoSuchElementException(MESSAGE_STRING_NULL);
         }

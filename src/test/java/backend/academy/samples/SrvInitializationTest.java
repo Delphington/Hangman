@@ -1,6 +1,6 @@
 package backend.academy.samples;
 
-//import backend.academy.Config;
+//import backend.academy.info.Config;
 //import backend.academy.SrvInitialization;
 //import org.junit.jupiter.api.BeforeEach;
 //import org.junit.jupiter.api.Test;

@@ -1,4 +1,4 @@
-package backend.academy;
+package backend.academy.info;
 
 public final class Config {
     private Config() {

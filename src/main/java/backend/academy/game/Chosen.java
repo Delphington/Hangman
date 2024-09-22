@@ -1,5 +1,10 @@
-package backend.academy;
+package backend.academy.game;
 
+import backend.academy.data.CheckData;
+import backend.academy.data.Level;
+import backend.academy.data.WordCategory;
+import backend.academy.info.Config;
+import backend.academy.info.StringConst;
 import java.io.PrintStream;
 import java.security.SecureRandom;
 import java.util.Scanner;

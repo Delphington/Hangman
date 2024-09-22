@@ -1,4 +1,4 @@
-package backend.academy;
+package backend.academy.info;
 
 public interface StringConst {
     String MESSAGE_STRING_NULL = "String is NULL";

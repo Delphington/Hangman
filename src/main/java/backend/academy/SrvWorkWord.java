@@ -1,5 +1,6 @@
 package backend.academy;
 
+import backend.academy.info.Config;
 import java.io.BufferedReader;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;

@@ -1,5 +1,6 @@
 package backend.academy;
 
+import backend.academy.game.StartGame;
 import lombok.experimental.UtilityClass;
 
 @UtilityClass

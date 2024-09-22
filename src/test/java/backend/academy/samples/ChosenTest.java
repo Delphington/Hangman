@@ -1,8 +1,8 @@
 //package backend.academy.samples;
 //
-//import backend.academy.Chosen;
-//import backend.academy.Config;
-//import backend.academy.StringConst;
+//import backend.academy.game.Chosen;
+//import backend.academy.info.Config;
+//import backend.academy.info.StringConst;
 //import org.junit.jupiter.api.AfterEach;
 //import org.junit.jupiter.api.BeforeEach;
 //import org.junit.jupiter.api.Test;

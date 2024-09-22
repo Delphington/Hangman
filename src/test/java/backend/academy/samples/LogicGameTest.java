@@ -1,6 +1,6 @@
 //package backend.academy.samples;
 //
-//import backend.academy.LogicGame;
+//import backend.academy.game.LogicGame;
 //import org.junit.jupiter.api.AfterEach;
 //import org.junit.jupiter.api.BeforeEach;
 //import org.junit.jupiter.api.Test;
