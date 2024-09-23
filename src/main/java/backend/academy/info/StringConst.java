@@ -19,8 +19,8 @@ public interface StringConst {
     String WORD_HINT = "hint";
     String MESSAGE_PREDICTION = "Подсказка: ";
 
-    String MESSAGE_LOSE = "----------------Вы проиграли (о_0) -----------------";
-    String MESSAGE_WIN = "----------------Вы выиграли (^_^) ----------------- ";
+    String MESSAGE_LOSE = "----------------Вы проиграли! (о_0) -----------------";
+    String MESSAGE_WIN = "----------------Вы выиграли! (^_^) ----------------- ";
 
     String MESSAGE_HIDDEN_WORD = "# Загаданное слово: ";
     String ERROR_MESSAGE = "Ошибка! ";

@@ -14,7 +14,6 @@ import java.util.Map;
 import java.util.Random;
 import lombok.Getter;
 
-@Getter
 public final class SrvWorkWord implements StringConst {
 
     private SrvWorkWord() {
@@ -32,7 +31,7 @@ public final class SrvWorkWord implements StringConst {
      * @param category   категория слов
      * @param level      уровень сложности слов
      * @param printStream поток для вывода сообщений об ошибках
-     * @return map, содержащая слова и соответствующие им подсказки
+     * @param random для выбора случайно слова
      */
 
     public static void initialization(int category, int level, PrintStream printStream, Random random) {

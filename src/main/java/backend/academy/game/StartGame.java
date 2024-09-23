@@ -3,7 +3,6 @@ package backend.academy.game;
 import backend.academy.SrvWorkWord;
 import java.nio.charset.StandardCharsets;
 import java.security.SecureRandom;
-import java.util.Map;
 import java.util.Scanner;
 
 public class StartGame {
@@ -12,11 +11,10 @@ public class StartGame {
 
     }
 
-    static Scanner scan = new Scanner(System.in, StandardCharsets.UTF_8);
-    static SecureRandom random = new SecureRandom();
-    static Map<String, String> mapWordAndHint;
-    static int category;
-    static int level;
+    private static Scanner scan = new Scanner(System.in, StandardCharsets.UTF_8);
+    private static SecureRandom random = new SecureRandom();
+    private static int category;
+    private static int level;
 
     /**
      * Метод для начала игры.
