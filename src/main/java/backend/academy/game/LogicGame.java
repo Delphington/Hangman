@@ -17,6 +17,7 @@ public final class LogicGame implements StringConst {
     @Setter
     private static int countError = 0; //Счетчик ошибок
 
+
     /**
      * Метод для запуска игры.
      *
@@ -58,8 +59,8 @@ public final class LogicGame implements StringConst {
                 }
 
                 //Вывод подсказки(Подсказка предлагается, когда пользователь совершил ошибку)
-                if (temp != null && temp.equals("hint") && countError > 0) {
-                    printStream.println("Подсказка: " + SrvWorkWord.getHint());
+                if (temp != null && temp.equals(WORD_HINT) && countError > 0) {
+                    printStream.println(MESSAGE_PREDICTION + SrvWorkWord.getHint());
                     isUsedHint = true;
 
                 } else if (temp != null && CheckData.checkChar(temp)) {  //проверка на норм символы

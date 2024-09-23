@@ -18,11 +18,18 @@ public final class Chosen implements StringConst {
 
     static String line = null;
 
+    private static String continue1 = "С"; //Кириллица
+    private static String continue2 = "C"; //Латиница
+
+    private static String exit1 = "Е"; //Кириллица
+    private static String exit2 = "E"; //латиница
+
     public static int chooseCategory(Scanner scan, PrintStream printStream, SecureRandom random) {
 
         printStream.println(MESSAGE_CHOOSE_CATEGORY);
         for (WordCategory wordCategory : WordCategory.values()) {
-            printStream.println("[" + (wordCategory.ordinal() + 1) + "] " + wordCategory.getDescription());
+            printStream.println(
+                OPEN_BRACKET + (wordCategory.ordinal() + 1) + CLOSE_BRACKET + SPACE + wordCategory.getDescription());
         }
 
         while (true) {
@@ -50,7 +57,7 @@ public final class Chosen implements StringConst {
 
         printStream.println(MESSAGE_CHOOSE_LEVEL);
         for (Level v : Level.values()) {
-            printStream.println("[" + (v.ordinal() + 1) + "] " + v.getValue());
+            printStream.println(OPEN_BRACKET + (v.ordinal() + 1) + CLOSE_BRACKET + SPACE + v.getValue());
         }
 
         while (true) {
@@ -83,12 +90,12 @@ public final class Chosen implements StringConst {
                 printStream.println(MESSAGE_INPUT_LETTER);
             } else {
                 if (CheckData.checkChar(line)
-                    && line.equalsIgnoreCase("C")
-                    || line.equalsIgnoreCase("С")) {
+                    && line.equalsIgnoreCase(continue1)
+                    || line.equalsIgnoreCase(continue2)) {
                     return true;
                 } else if (CheckData.checkChar(line)
-                    && line.equalsIgnoreCase("E")
-                    || line.equalsIgnoreCase("Е")) {
+                    && line.equalsIgnoreCase(exit1)
+                    || line.equalsIgnoreCase(exit2)) {
                     printStream.println(MESSAGE_GAVE_OVER);
                     return false;
                 } else {
