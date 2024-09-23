@@ -8,15 +8,6 @@ public interface StringConst {
     String MESSAGE_CONTINUE_EXIT = "[С]ontinue OR [E]xit";
     String MESSAGE_GAVE_OVER = "Игра завершена!";
 
-    String LEVEL_EASY = "Легкий";
-    String LEVEL_NORMAL = "Средний";
-    String LEVEL_HARD = "Сложный";
-
-    String CATEGORY_SPORT = "Спорт";
-    String CATEGORY_ANIMAL = "Животные";
-    String CATEGORY_NATURE = "Природа";
-    String CATEGORY_COUNTRY = "Страны";
-
     String MESSAGE_HINT = "Если нужна подсказка введите [hint] или ";
     String MESSAGE_ENTER_CHAR = "Введите букву для загаданного слова: ";
 

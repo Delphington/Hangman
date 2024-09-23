@@ -42,9 +42,7 @@ public final class Chosen implements StringConst {
                     printStream.println(WARNING_INCORRECT_NUMBER);
 
                 }
-
             }
-
         }
     }
 
