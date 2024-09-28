@@ -1,12 +1,11 @@
 package backend.academy.data;
 
-import backend.academy.info.StringConst;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 
 @Getter
 @AllArgsConstructor
-public enum WordCategory implements StringConst {
+public enum WordCategory  {
     SPORT("Спорт"),
     ANIMAL("Животные"),
     NATURE("Природа"),

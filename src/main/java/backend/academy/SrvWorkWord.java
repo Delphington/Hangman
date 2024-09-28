@@ -4,7 +4,6 @@ import backend.academy.info.Config;
 import backend.academy.info.StringConst;
 import java.io.BufferedReader;
 import java.io.FileInputStream;
-import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.io.PrintStream;
@@ -54,8 +53,6 @@ public final class SrvWorkWord implements StringConst {
                     break; // Выход из цикла после нахождения нужной категории и уровня
                 }
             }
-        } catch (FileNotFoundException e) {
-            printStream.println(e.getMessage());
         } catch (IOException e) {
             printStream.println(e.getMessage());
         }

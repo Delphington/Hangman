@@ -109,7 +109,8 @@ public final class LogicGame implements StringConst {
             if (foreignStr.indexOf("_") == -1) {
                 printStream.println(MESSAGE_WIN);
                 countError = 0;
-                isUsedHint = false;
+                isUsedHint = false
+                ;
                 break;
             }
         }
