@@ -18,7 +18,7 @@
 ### Установка
 1. Склонируйте репозиторий с игрой:
     ```bash
-    git clone https://github.com/m-fedosov/hangman_game.git
+    git clone [https://github.com/m-fedosov/hangman_game.git](https://github.com/Delphington/Hangman.git)
     ```
 2. Перейдите в директорию проекта:
     ```bash
