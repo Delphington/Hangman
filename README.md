@@ -15,21 +15,6 @@
 - Java 22+
 - Maven (для сборки проекта)
 
-### Установка
-1. Склонируйте репозиторий с игрой:
-    ```bash
-    git clone [https://github.com/m-fedosov/hangman_game.git](https://github.com/Delphington/Hangman.git)
-    ```
-2. Перейдите в директорию проекта:
-    ```bash
-    cd hangman_game
-    ```
-3. Соберите проект с помощью Maven:
-    ```bash
-    mvn clean install
-    ```
-
-
 ## Для проверки корретности работы проекта
 
 Для того чтобы собрать проект, и проверить, что все работает корректно, можно
